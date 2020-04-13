@@ -1,0 +1,6 @@
+framework module Library_FNCamera {
+  umbrella header "Library_FNCamera.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,99 @@
+/*
+ Localizable.strings
+ Library_FNCameraApp
+ 
+ Created by apical on 2019/9/24.
+ Copyright © 2019年 Choco Yang. All rights reserved.
+ */
+
+//preview
+"圆球模式" = "Mode sphérique";
+"360°VR模式" = "Modèle de 360°VR";
+"二分割" = "didivision";
+"往上" = "Partant de la base";
+"往下" = "La descente";
+"往前" = "Plus loin";
+"触控" = "tactiles";
+"动作" = "action";
+"触控+动作" = "Tactile + action";
+"连接失败" = "Défaut de connexion";
+"操作失败" = "Échec de l’exploitation";
+"确定" = "déterminer";
+"摄像机" = "caméras";
+"相册" = "l’album";
+"设置" = "La mise en place";
+"开始录像" = "Début de la vidéo";
+"关闭录像" = "Arrêt de la vidéo";
+"请确认Wi-Fi是否已连接" = "Veuillez confirmer que le wifi est connecté";
+
+
+
+//file
+"DVR视频" = "DVR video";
+"DVR图片" = "Image DVR";
+"本地视频" = "Vidéo locale";
+"本地图片" = "Images locales";
+"已下载" = "téléchargé";
+"下载" = "Le téléchargement";
+"取消下载成功" = "Annulation d’un téléchargement réussi";
+"下载失败" = "Défaut de téléchargement";
+"删除失败" = "Défaut de suppression";
+"视频" = "La vidéo";
+"照片" = "photo";
+"摄像机文件" = "Fichiers vidéo";
+"本地文件" = "Documents locaux";
+"请关闭录像" = "Veuillez fermer la vidéo";
+"没有获取到数据，是否继续获取?" = "Aucune donnée n’a été obtenue; est-ce que les données continuent à être obtenues?";
+
+
+//set
+"Wi-Fi未连接" = "Wi-fi non connecté";
+"确定要格式化吗" = "Vous êtes sûr que vous voulez le formatage";
+"格式化成功" = "Formatage réussi";
+"格式化失败" = "Défaut de formatage";
+"设置成功" = "Mise en place réussie";
+"设置失败" = "Défaut de mise en place";
+"确定要恢复出厂设置吗" = "Est-il sûr qu’il faut rétablir la configuration départ usine？";
+"恢复出厂设置成功" = "Retour à la position départ usine avec succès";
+"恢复出厂设置失败" = "La restauration des conditions d’usine a échoué";
+"取消" = "La suppression des";
+"关闭" = "La fermeture";
+"一般" = "En général,";
+"热点" = "Les points chauds";
+"1 分钟" = "1 min";
+"3 分钟" = "3 min";
+"5 分钟" = "5 min";
+"校准时间成功" = "Temps d’étalonnage réussi";
+"校准时间失败" = "Défaut d’étalonnage";
+"执行此操作需停止录像?" = "Pour effectuer cette opération, il faut arrêter la vidéo?";
+"录像已停止" = "La vidéo a été arrêtée";
+"机器断开重连成功" = "La machine est déconnectée et réconnectée avec succès";
+"确定删除该文件吗" = "Est-il sûr que le fichier a été supprimé";
+"删除失败" = "Défaut de suppression";
+
+"视频分辨率" = "Résolution vidéo";
+"视频戳记" = "Cachet vidéo";
+"录像曝光补偿" = "Compensation de l’exposition vidéo";
+"循环录像周期" = "Cycle vidéo";
+"录像宽动态" = "ビデオワイド";
+"移动侦测" = "Détection des mouvements";
+"自动录像" = "Enregistrement vidéo automatique";
+"校准时间" = "Temps d’étalonnage";
+"重力感应" = "Induction gravimétrique";
+"录像设定" = "Montage vidéo";
+"屏幕保护" = "Protecteurs d’écran";
+"光源频率" = "Fréquence de la source lumineuse";
+"按键音设定" = "Réglage du ton des touches";
+"相机语言" = "Langage de la caméra";
+"定时关机" = "Arrêt programmé";
+"格式化存储卡" = "Carte mémoire formatée";
+"恢复出厂设置" = "Rétablissement du réglage départ usine";
+"Wi-Fi模式" = "Mode wi-fi";
+"相机剩余空间" = "Espace résiduel de la caméra";
+"相机软件版本" = "Version du logiciel de caméra";
+"暂无文件" = "Pas de documents";
+"切换" = "commutation";
+
+"返回" = "Le retour";
+"分享" = "Le partage";
+"删除" = "supprimé";

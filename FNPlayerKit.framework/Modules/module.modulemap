@@ -1,0 +1,6 @@
+framework module FNPlayerKit {
+  umbrella header "FNPlayerKit.h"
+
+  export *
+  module * { export * }
+}

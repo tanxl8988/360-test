@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6599BDA01C082E1400D31911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599BD9F1C082E1400D31911 /* main.m */; };
+		6599BDA31C082E1400D31911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599BDA21C082E1400D31911 /* AppDelegate.m */; };
+		6599BDA91C082E1400D31911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6599BDA71C082E1400D31911 /* Main.storyboard */; };
+		6599BDAB1C082E1400D31911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6599BDAA1C082E1400D31911 /* Assets.xcassets */; };
+		6599BDAE1C082E1400D31911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6599BDAC1C082E1400D31911 /* LaunchScreen.storyboard */; };
+		B6F5D9DA1C7BFA6B00F740BE /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D9D91C7BFA6B00F740BE /* UIView+Toast.m */; };
+		D626BCDD2252105700696FA4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D626BCDC2252105700696FA4 /* MBProgressHUD.m */; };
+		D66A8495230CD02F00A8F828 /* MyCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D66A8493230CD02F00A8F828 /* MyCoreData.xcdatamodeld */; };
+		D66A8498230CD0F500A8F828 /* APKMOCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8497230CD0F500A8F828 /* APKMOCManager.m */; };
+		D66A849D230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A849A230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.m */; };
+		D66A849E230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A849C230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.m */; };
+		D66A84A1230CE71C00A8F828 /* APKRemotePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A84A0230CE71C00A8F828 /* APKRemotePlayerViewController.m */; };
+		D66A84A4230D43B600A8F828 /* LocalFileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A84A3230D43B600A8F828 /* LocalFileCell.m */; };
+		D66D3FF82307F57F006DE72F /* APKFileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66D3FF72307F57F006DE72F /* APKFileListViewController.m */; };
+		D66E549922FE95C500AF15B0 /* APKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66E549822FE95C500AF15B0 /* APKSettingViewController.m */; };
+		D67010362339B07900499D39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D67010382339B07900499D39 /* Localizable.strings */; };
+		D671A64A223F4C54005221BB /* APKFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D671A649223F4C54005221BB /* APKFileViewController.m */; };
+		D671A650223F675E005221BB /* APKFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D671A64F223F675E005221BB /* APKFileView.m */; };
+		D671A652223F6768005221BB /* APKFileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D671A651223F6768005221BB /* APKFileView.xib */; };
+		D672B8A922FBB3B300E1D560 /* Library_FNCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */; };
+		D672B8AA22FBB3B300E1D560 /* Library_FNCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D672B8AD22FBBEBE00E1D560 /* APKAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D672B8AC22FBBEBE00E1D560 /* APKAlertTool.m */; };
+		D6761384230B9D0000B89E64 /* APKProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6761383230B9D0000B89E64 /* APKProgressView.m */; };
+		D6761386230B9D0F00B89E64 /* APKProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6761385230B9D0F00B89E64 /* APKProgressView.xib */; };
+		D67BB5562269A9F2008033D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67BB5552269A9F2008033D9 /* Images.xcassets */; };
+		D685A181240F7855007BCD14 /* FNPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D685A17D240F7801007BCD14 /* FNPlayerKit.framework */; };
+		D685A182240F7855007BCD14 /* FNPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D685A17D240F7801007BCD14 /* FNPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D6ACB246241A0DE6001D2958 /* FNISDKToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ACB245241A0DE6001D2958 /* FNISDKToolViewController.m */; };
+		D6C7C22C230A30FF009D9999 /* fileListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C22B230A30FF009D9999 /* fileListCell.m */; };
+		D6C7C22F230A46F4009D9999 /* APKDVRFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C22E230A46F4009D9999 /* APKDVRFile.m */; };
+		D6C7C232230A4714009D9999 /* APKLocalFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C231230A4714009D9999 /* APKLocalFile.m */; };
+		D6C7C250230A723F009D9999 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D6C7C234230A723F009D9999 /* LICENSE */; };
+		D6C7C251230A723F009D9999 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D6C7C235230A723F009D9999 /* README.md */; };
+		D6C7C252230A723F009D9999 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C238230A723F009D9999 /* NSData+ImageContentType.m */; };
+		D6C7C253230A723F009D9999 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C23A230A723F009D9999 /* SDImageCache.m */; };
+		D6C7C254230A723F009D9999 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C23C230A723F009D9999 /* SDWebImageCompat.m */; };
+		D6C7C255230A723F009D9999 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C23E230A723F009D9999 /* SDWebImageDecoder.m */; };
+		D6C7C256230A723F009D9999 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C240230A723F009D9999 /* SDWebImageDownloader.m */; };
+		D6C7C257230A723F009D9999 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C242230A723F009D9999 /* SDWebImageDownloaderOperation.m */; };
+		D6C7C258230A723F009D9999 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C244230A723F009D9999 /* SDWebImageManager.m */; };
+		D6C7C259230A723F009D9999 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C247230A723F009D9999 /* SDWebImagePrefetcher.m */; };
+		D6C7C25A230A723F009D9999 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C249230A723F009D9999 /* UIButton+WebCache.m */; };
+		D6C7C25B230A723F009D9999 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C24B230A723F009D9999 /* UIImage+GIF.m */; };
+		D6C7C25C230A723F009D9999 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C24D230A723F009D9999 /* UIImage+MultiFormat.m */; };
+		D6C7C25D230A723F009D9999 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C7C24F230A723F009D9999 /* UIImageView+WebCache.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE0A6277222D06BC00E61AD2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D685A182240F7855007BCD14 /* FNPlayerKit.framework in Embed Frameworks */,
+				D672B8AA22FBB3B300E1D560 /* Library_FNCamera.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6599BD9B1C082E1400D31911 /* Library_FNCameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library_FNCameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6599BD9F1C082E1400D31911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6599BDA11C082E1400D31911 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6599BDA21C082E1400D31911 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6599BDA81C082E1400D31911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6599BDAA1C082E1400D31911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6599BDAD1C082E1400D31911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6599BDAF1C082E1400D31911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F5D9D81C7BFA6B00F740BE /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		B6F5D9D91C7BFA6B00F740BE /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		D626BCDB2252105700696FA4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D626BCDC2252105700696FA4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D66A8494230CD02F00A8F828 /* MyCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCoreData.xcdatamodel; sourceTree = "<group>"; };
+		D66A8496230CD0F500A8F828 /* APKMOCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APKMOCManager.h; sourceTree = "<group>"; };
+		D66A8497230CD0F500A8F828 /* APKMOCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APKMOCManager.m; sourceTree = "<group>"; };
+		D66A8499230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocalFileInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		D66A849A230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LocalFileInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		D66A849B230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocalFileInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D66A849C230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LocalFileInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D66A849F230CE71C00A8F828 /* APKRemotePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKRemotePlayerViewController.h; sourceTree = "<group>"; };
+		D66A84A0230CE71C00A8F828 /* APKRemotePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKRemotePlayerViewController.m; sourceTree = "<group>"; };
+		D66A84A2230D43B600A8F828 /* LocalFileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalFileCell.h; sourceTree = "<group>"; };
+		D66A84A3230D43B600A8F828 /* LocalFileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalFileCell.m; sourceTree = "<group>"; };
+		D66D3FF62307F57F006DE72F /* APKFileListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKFileListViewController.h; sourceTree = "<group>"; };
+		D66D3FF72307F57F006DE72F /* APKFileListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKFileListViewController.m; sourceTree = "<group>"; };
+		D66E549722FE95C500AF15B0 /* APKSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKSettingViewController.h; sourceTree = "<group>"; };
+		D66E549822FE95C500AF15B0 /* APKSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKSettingViewController.m; sourceTree = "<group>"; };
+		D6700FE92339ABC300499D39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D6700FEA2339ABC300499D39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D67010342339B06400499D39 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		D67010352339B06400499D39 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D67010372339B07900499D39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D67010392339B07B00499D39 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D670103D233A1AFD00499D39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D670103E233A1AFD00499D39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D670103F233A1AFD00499D39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D671095124108E8800CE07DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		D671095224108E8800CE07DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D671095324108E8B00CE07DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D671A648223F4C54005221BB /* APKFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKFileViewController.h; sourceTree = "<group>"; };
+		D671A649223F4C54005221BB /* APKFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKFileViewController.m; sourceTree = "<group>"; };
+		D671A64E223F675E005221BB /* APKFileView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKFileView.h; sourceTree = "<group>"; };
+		D671A64F223F675E005221BB /* APKFileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKFileView.m; sourceTree = "<group>"; };
+		D671A651223F6768005221BB /* APKFileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APKFileView.xib; sourceTree = "<group>"; };
+		D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Library_FNCamera.framework; sourceTree = "<group>"; };
+		D672B8AB22FBBEBE00E1D560 /* APKAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APKAlertTool.h; sourceTree = "<group>"; };
+		D672B8AC22FBBEBE00E1D560 /* APKAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APKAlertTool.m; sourceTree = "<group>"; };
+		D6761382230B9D0000B89E64 /* APKProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKProgressView.h; sourceTree = "<group>"; };
+		D6761383230B9D0000B89E64 /* APKProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKProgressView.m; sourceTree = "<group>"; };
+		D6761385230B9D0F00B89E64 /* APKProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APKProgressView.xib; sourceTree = "<group>"; };
+		D67BB5552269A9F2008033D9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D68494F72413313900517DDA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		D68494F82413313900517DDA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D68494F92413313900517DDA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D68495012413325500517DDA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		D68495022413325500517DDA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D68495032413325500517DDA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D684950424136D5F00517DDA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		D684950524136D5F00517DDA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D684950624136D6100517DDA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D685A17D240F7801007BCD14 /* FNPlayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FNPlayerKit.framework; sourceTree = "<group>"; };
+		D6ACB244241A0DE6001D2958 /* FNISDKToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNISDKToolViewController.h; sourceTree = "<group>"; };
+		D6ACB245241A0DE6001D2958 /* FNISDKToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNISDKToolViewController.m; sourceTree = "<group>"; };
+		D6C7C22A230A30FF009D9999 /* fileListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fileListCell.h; sourceTree = "<group>"; };
+		D6C7C22B230A30FF009D9999 /* fileListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fileListCell.m; sourceTree = "<group>"; };
+		D6C7C22D230A46F4009D9999 /* APKDVRFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKDVRFile.h; sourceTree = "<group>"; };
+		D6C7C22E230A46F4009D9999 /* APKDVRFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKDVRFile.m; sourceTree = "<group>"; };
+		D6C7C230230A4714009D9999 /* APKLocalFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKLocalFile.h; sourceTree = "<group>"; };
+		D6C7C231230A4714009D9999 /* APKLocalFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKLocalFile.m; sourceTree = "<group>"; };
+		D6C7C234230A723F009D9999 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D6C7C235230A723F009D9999 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D6C7C237230A723F009D9999 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		D6C7C238230A723F009D9999 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		D6C7C239230A723F009D9999 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		D6C7C23A230A723F009D9999 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		D6C7C23B230A723F009D9999 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		D6C7C23C230A723F009D9999 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		D6C7C23D230A723F009D9999 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		D6C7C23E230A723F009D9999 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		D6C7C23F230A723F009D9999 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		D6C7C240230A723F009D9999 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		D6C7C241230A723F009D9999 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		D6C7C242230A723F009D9999 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		D6C7C243230A723F009D9999 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		D6C7C244230A723F009D9999 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		D6C7C245230A723F009D9999 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		D6C7C246230A723F009D9999 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		D6C7C247230A723F009D9999 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		D6C7C248230A723F009D9999 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		D6C7C249230A723F009D9999 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		D6C7C24A230A723F009D9999 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		D6C7C24B230A723F009D9999 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		D6C7C24C230A723F009D9999 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		D6C7C24D230A723F009D9999 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		D6C7C24E230A723F009D9999 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		D6C7C24F230A723F009D9999 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6599BD981C082E1400D31911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D685A181240F7855007BCD14 /* FNPlayerKit.framework in Frameworks */,
+				D672B8A922FBB3B300E1D560 /* Library_FNCamera.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55573A001DAF914900EE2694 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D6ACB244241A0DE6001D2958 /* FNISDKToolViewController.h */,
+				D6ACB245241A0DE6001D2958 /* FNISDKToolViewController.m */,
+				D671A648223F4C54005221BB /* APKFileViewController.h */,
+				D671A649223F4C54005221BB /* APKFileViewController.m */,
+				D66E549722FE95C500AF15B0 /* APKSettingViewController.h */,
+				D66E549822FE95C500AF15B0 /* APKSettingViewController.m */,
+				D66D3FF62307F57F006DE72F /* APKFileListViewController.h */,
+				D66D3FF72307F57F006DE72F /* APKFileListViewController.m */,
+				D66A849F230CE71C00A8F828 /* APKRemotePlayerViewController.h */,
+				D66A84A0230CE71C00A8F828 /* APKRemotePlayerViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		55573A011DAF915300EE2694 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6C7C22D230A46F4009D9999 /* APKDVRFile.h */,
+				D6C7C22E230A46F4009D9999 /* APKDVRFile.m */,
+				D6C7C230230A4714009D9999 /* APKLocalFile.h */,
+				D6C7C231230A4714009D9999 /* APKLocalFile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		55573A061DAF973100EE2694 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6F5D9D81C7BFA6B00F740BE /* UIView+Toast.h */,
+				B6F5D9D91C7BFA6B00F740BE /* UIView+Toast.m */,
+				D671A64E223F675E005221BB /* APKFileView.h */,
+				D671A64F223F675E005221BB /* APKFileView.m */,
+				D671A651223F6768005221BB /* APKFileView.xib */,
+				D6C7C22A230A30FF009D9999 /* fileListCell.h */,
+				D6C7C22B230A30FF009D9999 /* fileListCell.m */,
+				D6761382230B9D0000B89E64 /* APKProgressView.h */,
+				D6761383230B9D0000B89E64 /* APKProgressView.m */,
+				D6761385230B9D0F00B89E64 /* APKProgressView.xib */,
+				D66A84A2230D43B600A8F828 /* LocalFileCell.h */,
+				D66A84A3230D43B600A8F828 /* LocalFileCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		55573A1F1DB0C36400EE2694 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6599BDA11C082E1400D31911 /* AppDelegate.h */,
+				6599BDA21C082E1400D31911 /* AppDelegate.m */,
+				6599BDA71C082E1400D31911 /* Main.storyboard */,
+				6599BDAA1C082E1400D31911 /* Assets.xcassets */,
+				6599BDAC1C082E1400D31911 /* LaunchScreen.storyboard */,
+				6599BDAF1C082E1400D31911 /* Info.plist */,
+				D626BCDB2252105700696FA4 /* MBProgressHUD.h */,
+				D626BCDC2252105700696FA4 /* MBProgressHUD.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		6599BD921C082E1400D31911 = {
+			isa = PBXGroup;
+			children = (
+				D685A17D240F7801007BCD14 /* FNPlayerKit.framework */,
+				D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */,
+				6599BD9D1C082E1400D31911 /* Library_FNCameraApp */,
+				6599BD9C1C082E1400D31911 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6599BD9C1C082E1400D31911 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6599BD9B1C082E1400D31911 /* Library_FNCameraApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6599BD9D1C082E1400D31911 /* Library_FNCameraApp */ = {
+			isa = PBXGroup;
+			children = (
+				D66A8492230CD01200A8F828 /* CoreData */,
+				55573A1F1DB0C36400EE2694 /* Util */,
+				55573A061DAF973100EE2694 /* View */,
+				55573A011DAF915300EE2694 /* Model */,
+				55573A001DAF914900EE2694 /* ViewController */,
+				D67BB5552269A9F2008033D9 /* Images.xcassets */,
+				6599BD9E1C082E1400D31911 /* Supporting Files */,
+			);
+			path = Library_FNCameraApp;
+			sourceTree = "<group>";
+		};
+		6599BD9E1C082E1400D31911 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6C7C233230A723F009D9999 /* SDWebImage */,
+				D672B8AB22FBBEBE00E1D560 /* APKAlertTool.h */,
+				D672B8AC22FBBEBE00E1D560 /* APKAlertTool.m */,
+				6599BD9F1C082E1400D31911 /* main.m */,
+				D67010382339B07900499D39 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D66A8492230CD01200A8F828 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D66A8496230CD0F500A8F828 /* APKMOCManager.h */,
+				D66A8497230CD0F500A8F828 /* APKMOCManager.m */,
+				D66A8499230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.h */,
+				D66A849A230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.m */,
+				D66A849B230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.h */,
+				D66A849C230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.m */,
+				D66A8493230CD02F00A8F828 /* MyCoreData.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		D6C7C233230A723F009D9999 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				D6C7C234230A723F009D9999 /* LICENSE */,
+				D6C7C235230A723F009D9999 /* README.md */,
+				D6C7C236230A723F009D9999 /* SDWebImage */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		D6C7C236230A723F009D9999 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				D6C7C237230A723F009D9999 /* NSData+ImageContentType.h */,
+				D6C7C238230A723F009D9999 /* NSData+ImageContentType.m */,
+				D6C7C239230A723F009D9999 /* SDImageCache.h */,
+				D6C7C23A230A723F009D9999 /* SDImageCache.m */,
+				D6C7C23B230A723F009D9999 /* SDWebImageCompat.h */,
+				D6C7C23C230A723F009D9999 /* SDWebImageCompat.m */,
+				D6C7C23D230A723F009D9999 /* SDWebImageDecoder.h */,
+				D6C7C23E230A723F009D9999 /* SDWebImageDecoder.m */,
+				D6C7C23F230A723F009D9999 /* SDWebImageDownloader.h */,
+				D6C7C240230A723F009D9999 /* SDWebImageDownloader.m */,
+				D6C7C241230A723F009D9999 /* SDWebImageDownloaderOperation.h */,
+				D6C7C242230A723F009D9999 /* SDWebImageDownloaderOperation.m */,
+				D6C7C243230A723F009D9999 /* SDWebImageManager.h */,
+				D6C7C244230A723F009D9999 /* SDWebImageManager.m */,
+				D6C7C245230A723F009D9999 /* SDWebImageOperation.h */,
+				D6C7C246230A723F009D9999 /* SDWebImagePrefetcher.h */,
+				D6C7C247230A723F009D9999 /* SDWebImagePrefetcher.m */,
+				D6C7C248230A723F009D9999 /* UIButton+WebCache.h */,
+				D6C7C249230A723F009D9999 /* UIButton+WebCache.m */,
+				D6C7C24A230A723F009D9999 /* UIImage+GIF.h */,
+				D6C7C24B230A723F009D9999 /* UIImage+GIF.m */,
+				D6C7C24C230A723F009D9999 /* UIImage+MultiFormat.h */,
+				D6C7C24D230A723F009D9999 /* UIImage+MultiFormat.m */,
+				D6C7C24E230A723F009D9999 /* UIImageView+WebCache.h */,
+				D6C7C24F230A723F009D9999 /* UIImageView+WebCache.m */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6599BD9A1C082E1400D31911 /* Library_FNCameraApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6599BDC81C082E1400D31911 /* Build configuration list for PBXNativeTarget "Library_FNCameraApp" */;
+			buildPhases = (
+				6599BD971C082E1400D31911 /* Sources */,
+				6599BD981C082E1400D31911 /* Frameworks */,
+				6599BD991C082E1400D31911 /* Resources */,
+				AE0A6277222D06BC00E61AD2 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Library_FNCameraApp;
+			productName = Library_FNCameraApp;
+			productReference = 6599BD9B1C082E1400D31911 /* Library_FNCameraApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6599BD931C082E1400D31911 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Choco Yang";
+				TargetAttributes = {
+					6599BD9A1C082E1400D31911 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 7JA3J4SM22;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 6599BD961C082E1400D31911 /* Build configuration list for PBXProject "Library_FNCameraApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Base,
+				"zh-Hant",
+				"zh-Hans",
+				ja,
+				it,
+				fr,
+				es,
+				en,
+			);
+			mainGroup = 6599BD921C082E1400D31911;
+			productRefGroup = 6599BD9C1C082E1400D31911 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6599BD9A1C082E1400D31911 /* Library_FNCameraApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6599BD991C082E1400D31911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D671A652223F6768005221BB /* APKFileView.xib in Resources */,
+				D6761386230B9D0F00B89E64 /* APKProgressView.xib in Resources */,
+				6599BDAE1C082E1400D31911 /* LaunchScreen.storyboard in Resources */,
+				D6C7C250230A723F009D9999 /* LICENSE in Resources */,
+				D67010362339B07900499D39 /* Localizable.strings in Resources */,
+				D67BB5562269A9F2008033D9 /* Images.xcassets in Resources */,
+				6599BDAB1C082E1400D31911 /* Assets.xcassets in Resources */,
+				D6C7C251230A723F009D9999 /* README.md in Resources */,
+				6599BDA91C082E1400D31911 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6599BD971C082E1400D31911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6C7C258230A723F009D9999 /* SDWebImageManager.m in Sources */,
+				D6C7C254230A723F009D9999 /* SDWebImageCompat.m in Sources */,
+				D6C7C259230A723F009D9999 /* SDWebImagePrefetcher.m in Sources */,
+				D66A8495230CD02F00A8F828 /* MyCoreData.xcdatamodeld in Sources */,
+				6599BDA31C082E1400D31911 /* AppDelegate.m in Sources */,
+				D6C7C253230A723F009D9999 /* SDImageCache.m in Sources */,
+				D671A650223F675E005221BB /* APKFileView.m in Sources */,
+				D6C7C25A230A723F009D9999 /* UIButton+WebCache.m in Sources */,
+				D66A849E230CD12D00A8F828 /* LocalFileInfo+CoreDataProperties.m in Sources */,
+				D6C7C22F230A46F4009D9999 /* APKDVRFile.m in Sources */,
+				D6C7C232230A4714009D9999 /* APKLocalFile.m in Sources */,
+				D66D3FF82307F57F006DE72F /* APKFileListViewController.m in Sources */,
+				D66A84A4230D43B600A8F828 /* LocalFileCell.m in Sources */,
+				D6C7C25D230A723F009D9999 /* UIImageView+WebCache.m in Sources */,
+				D672B8AD22FBBEBE00E1D560 /* APKAlertTool.m in Sources */,
+				D66A849D230CD12D00A8F828 /* LocalFileInfo+CoreDataClass.m in Sources */,
+				D6C7C25B230A723F009D9999 /* UIImage+GIF.m in Sources */,
+				D6ACB246241A0DE6001D2958 /* FNISDKToolViewController.m in Sources */,
+				D6C7C22C230A30FF009D9999 /* fileListCell.m in Sources */,
+				D66A84A1230CE71C00A8F828 /* APKRemotePlayerViewController.m in Sources */,
+				D6C7C25C230A723F009D9999 /* UIImage+MultiFormat.m in Sources */,
+				D6C7C255230A723F009D9999 /* SDWebImageDecoder.m in Sources */,
+				D6C7C252230A723F009D9999 /* NSData+ImageContentType.m in Sources */,
+				D6C7C257230A723F009D9999 /* SDWebImageDownloaderOperation.m in Sources */,
+				6599BDA01C082E1400D31911 /* main.m in Sources */,
+				D66A8498230CD0F500A8F828 /* APKMOCManager.m in Sources */,
+				B6F5D9DA1C7BFA6B00F740BE /* UIView+Toast.m in Sources */,
+				D671A64A223F4C54005221BB /* APKFileViewController.m in Sources */,
+				D6C7C256230A723F009D9999 /* SDWebImageDownloader.m in Sources */,
+				D66E549922FE95C500AF15B0 /* APKSettingViewController.m in Sources */,
+				D6761384230B9D0000B89E64 /* APKProgressView.m in Sources */,
+				D626BCDD2252105700696FA4 /* MBProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6599BDA71C082E1400D31911 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6599BDA81C082E1400D31911 /* Base */,
+				D6700FE92339ABC300499D39 /* en */,
+				D67010342339B06400499D39 /* zh-Hant */,
+				D670103D233A1AFD00499D39 /* zh-Hans */,
+				D671095124108E8800CE07DE /* ja */,
+				D68494F72413313900517DDA /* it */,
+				D68495012413325500517DDA /* fr */,
+				D684950424136D5F00517DDA /* es */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6599BDAC1C082E1400D31911 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6599BDAD1C082E1400D31911 /* Base */,
+				D6700FEA2339ABC300499D39 /* en */,
+				D67010352339B06400499D39 /* zh-Hant */,
+				D670103E233A1AFD00499D39 /* zh-Hans */,
+				D671095224108E8800CE07DE /* ja */,
+				D68494F82413313900517DDA /* it */,
+				D68495022413325500517DDA /* fr */,
+				D684950524136D5F00517DDA /* es */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D67010382339B07900499D39 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D67010372339B07900499D39 /* en */,
+				D67010392339B07B00499D39 /* zh-Hant */,
+				D670103F233A1AFD00499D39 /* zh-Hans */,
+				D671095324108E8B00CE07DE /* ja */,
+				D68494F92413313900517DDA /* it */,
+				D68495032413325500517DDA /* fr */,
+				D684950624136D6100517DDA /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6599BDC61C082E1400D31911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6599BDC71C082E1400D31911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6599BDC91C082E1400D31911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7JA3J4SM22;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Library_FNCameraApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apical.vrcameratool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6599BDCA1C082E1400D31911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7JA3J4SM22;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Library_FNCameraApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apical.vrcameratool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6599BD961C082E1400D31911 /* Build configuration list for PBXProject "Library_FNCameraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6599BDC61C082E1400D31911 /* Debug */,
+				6599BDC71C082E1400D31911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6599BDC81C082E1400D31911 /* Build configuration list for PBXNativeTarget "Library_FNCameraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6599BDC91C082E1400D31911 /* Debug */,
+				6599BDCA1C082E1400D31911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D66A8493230CD02F00A8F828 /* MyCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D66A8494230CD02F00A8F828 /* MyCoreData.xcdatamodel */,
+			);
+			currentVersion = D66A8494230CD02F00A8F828 /* MyCoreData.xcdatamodel */;
+			path = MyCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6599BD931C082E1400D31911 /* Project object */;
+}

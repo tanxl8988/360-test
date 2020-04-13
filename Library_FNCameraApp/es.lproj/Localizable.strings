@@ -1,0 +1,99 @@
+/*
+ Localizable.strings
+ Library_FNCameraApp
+ 
+ Created by apical on 2019/9/24.
+ Copyright © 2019年 Choco Yang. All rights reserved.
+ */
+
+//preview
+"圆球模式" = "Modo de esfera";
+"360°VR模式" = "Patrones de 360° dot-com";
+"二分割" = "didivisión";
+"往上" = "derramarse";
+"往下" = "Hacia abajo";
+"往前" = "Hacia adelante";
+"触控" = "Touch";
+"动作" = "action";
+"触控+动作" = "Touch + action";
+"连接失败" = "Falla en la conexión";
+"操作失败" = "Fallo de la operación";
+"确定" = "determinar";
+"摄像机" = "Cámara de vídeo";
+"相册" = "Álbum de";
+"设置" = "La configuración";
+"开始录像" = "Inicio de la grabación";
+"关闭录像" = "Cierre el video";
+"请确认Wi-Fi是否已连接" = "Por favor, verifique si la conexión wi-fi está conectada";
+
+
+
+//file
+"DVR视频" = "DVR video";
+"DVR图片" = "Imagen de DVR";
+"本地视频" = "Videos locales";
+"本地图片" = "Imágenes locales";
+"已下载" = "Ha sido descargado";
+"下载" = "descargar";
+"取消下载成功" = "Cancelar la descarga con éxito";
+"下载失败" = "Descarga fallida";
+"删除失败" = "Fallo en la eliminación";
+"视频" = "vídeo";
+"照片" = "fotos";
+"摄像机文件" = "Archivo de cámara";
+"本地文件" = "Documentos locales";
+"请关闭录像" = "Por favor, apaga el video.";
+"没有获取到数据，是否继续获取?" = "No se han obtenido los datos.";
+
+
+//set
+"Wi-Fi未连接" = "Wi-fi no conectado";
+"确定要格式化吗" = "¿Seguro que quieres formatear";
+"格式化成功" = "Formateo exitoso";
+"格式化失败" = "Fallo en el formato";
+"设置成功" = "Puesta en marcha con éxito";
+"设置失败" = "Fallo en la configuración";
+"确定要恢复出厂设置吗" = "¿Está seguro de que desea restaurar la configuración de fábrica";
+"恢复出厂设置成功" = "Restablecimiento de la configuración de fábrica con éxito";
+"恢复出厂设置失败" = "La restauración de la configuración de fábrica ha fallado";
+"取消" = "cancelación";
+"关闭" = "cierre";
+"一般" = "general";
+"热点" = "hot";
+"1 分钟" = "1 minuto";
+"3 分钟" = "3 minutos";
+"5 分钟" = "5 minutos";
+"校准时间成功" = "Éxito del tiempo de calibración";
+"校准时间失败" = "Fallo en el tiempo de calibración";
+"执行此操作需停止录像?" = "¿Es necesario detener la grabación para realizar esta operación?";
+"录像已停止" = "La grabación se ha detenido";
+"机器断开重连成功" = "La máquina se desconectó y reconectó con éxito";
+"确定删除该文件吗" = "¿Está seguro de eliminar el archivo";
+"删除失败" = "Fallo en la eliminación";
+
+"视频分辨率" = "Resolución de vídeo";
+"视频戳记" = "Sello de vídeo";
+"录像曝光补偿" = "Compensación de la exposición en vídeo";
+"循环录像周期" = "Ciclo de grabación";
+"录像宽动态" = "Dinámica de vídeo";
+"移动侦测" = "Detección de movimientos";
+"自动录像" = "Grabación automática de vídeo";
+"校准时间" = "Tiempo de calibración";
+"重力感应" = "Inducción gravitacional";
+"录像设定" = "Configuración del vídeo";
+"屏幕保护" = "Protectores de pantalla";
+"光源频率" = "Frecuencia de la fuente de luz";
+"按键音设定" = "Ajuste del tono de las teclas";
+"相机语言" = "Lenguaje de la cámara";
+"定时关机" = "Apagado programado";
+"格式化存储卡" = "Formato de la tarjeta de memoria";
+"恢复出厂设置" = "Restablecimiento de la configuración de fábrica";
+"Wi-Fi模式" = "Modo wi-fi";
+"相机剩余空间" = "Espacio residual para la cámara";
+"相机软件版本" = "Versión del software de la cámara";
+"暂无文件" = "Sin documentos";
+"切换" = "intercambiador";
+
+"返回" = "regreso";
+"分享" = "compartir";
+"删除" = "borrar";
