@@ -10,42 +10,60 @@
 #define FNConstants_h
 
 // Video Settings
-#define TYPE_VIDEO_RESOLUTION           @"video_resolution"
-#define TYPE_VIDEO_QUALITY              @"video_quality"
-#define TYPE_VIDEO_TIMELAPSE            @"video_timelapse"
-#define TYPE_VIDEO_TIMELAPSE_DURATION   @"video_timelapse_duration"
-#define TYPE_VIDEO_SLOWMOTION           @"video_slowmotion"
-#define TYPE_VIDEO_STAMP                @"video_stamp"
-#define TYPE_VIDEO_STAMP_DATE           @"video_stamp_date"
-#define TYPE_VIDEO_STAMP_TIME           @"video_stamp_time"
-#define TYPE_VIDEO_STAMP_DRIVERID       @"video_stamp_driverid"
-#define TYPE_VIDEO_HDR                  @"video_hdr"
-#define TYPE_VIDEO_AUDIO                @"video_audio"
-#define TYPE_VIDEO_MOTION_DET           @"video_motion_det"
-#define TYPE_AUTO_RECORD                @"auto_record"
-#define TYPE_VIDEO_CYCLIC               @"video_cyclic"
-#define TYPE_LIVE_RESOLUTION            @"live_resolution"
-#define TYPE_VIDEO_BITRATE              @"video_bitrate"
-#define TYPE_LIVE_BITRATE               @"live_bitrate"
-#define TYPE_PIP_STYLE                  @"pip_style"
-#define TYPE_VIDEO_FISHEYE_MODE         @"video_fisheye_mode"
-#define TYPE_VIDEO_WDR                  @"video_wdr"
+#define TYPE_VIDEO_RESOLUTION       @"video_resolution"
+#define TYPE_VIDEO_QUALITY          @"video_quality"
+#define TYPE_VIDEO_TIMELAPSE        @"video_timelapse"
+#define TYPE_VIDEO_SLOWMOTION       @"video_slowmotion"
+#define TYPE_VIDEO_STAMP            @"video_stamp"
+#define TYPE_VIDEO_STAMP_DATE       @"video_stamp_date"
+#define TYPE_VIDEO_STAMP_TIME       @"video_stamp_time"
+#define TYPE_VIDEO_STAMP_DRIVERID   @"video_stamp_driverid"
+#define TYPE_VIDEO_HDR              @"video_hdr"
+#define TYPE_VIDEO_AUDIO            @"video_audio"
+#define TYPE_VIDEO_MOTION_DET       @"video_motion_det"
+#define TYPE_AUTO_RECORD            @"auto_record"
+#define TYPE_VIDEO_CYCLIC           @"video_cyclic"
+#define TYPE_LIVE_RESOLUTION        @"live_resolution"
+#define TYPE_VIDEO_BITRATE          @"video_bitrate"
+#define TYPE_LIVE_BITRATE           @"live_bitrate"
+#define TYPE_PIP_STYLE              @"pip_style"
+#define TYPE_VIDEO_FISHEYE_MODE     @"video_fisheye_mode"
+#define TYPE_VIDEO_WDR              @"video_wdr"
+#define TYPE_VIDEO_EV               @"video_ev"
+#define TYPE_VIDEO_ISO              @"video_iso"
+#define TYPE_VIDEO_WB               @"video_wb"
+#define TYPE_VIDEO_SPOT_METERING    @"video_spot_metering"
+#define TYPE_VIDEO_CODEC            @"video_codec"
+#define TYPE_VIDEO_DIS              @"video_dis"
+#define TYPE_VIDEO_LDC              @"video_ldc"
+#define TYPE_VIDEO_PHOTO            @"video_photo"
+#define TYPE_VIDEO_OUTPUT_FORMAT    @"video_output_format"
+#define TYPE_VIDEO_FPS              @"video_fps"
+#define TYPE_BACK_VIDEO_RESOLUTION  @"back_video_resolution"
 
 // Photo Settings
-#define TYPE_PHOTO_RESOLUTION           @"photo_resolution"
-#define TYPE_PHOTO_QUALITY              @"photo_quality"
-#define TYPE_PHOTO_TIMELAPSE            @"photo_timelapse"
-#define TYPE_PHOTO_STAMP                @"photo_stamp"
-#define TYPE_PHOTO_STAMP_DATE           @"photo_stamp_date"
-#define TYPE_PHOTO_STAMP_TIME           @"photo_stamp_time"
-#define TYPE_PHOTO_STAMP_DRIVERID       @"photo_stamp_driverid"
-#define TYPE_CAPTURE_MODE               @"capture_mode"
-#define TYPE_CONTINUE_SHOT              @"continue_shot"
-#define TYPE_PHOTO_BURST                @"photo_burst"
-#define TYPE_PHOTO_SELFTIMER            @"photo_selftimer"
-#define TYPE_PHOTO_FISHEYE_MODE         @"photo_fisheye_mode"
-#define TYPE_PHOTO_WDR                  @"photo_wdr"
-#define TYPE_PHOTO_EV                   @"photo_ev"
+#define TYPE_PHOTO_RESOLUTION       @"photo_resolution"
+#define TYPE_PHOTO_QUALITY          @"photo_quality"
+#define TYPE_PHOTO_TIMELAPSE        @"photo_timelapse"
+#define TYPE_PHOTO_STAMP            @"photo_stamp"
+#define TYPE_PHOTO_STAMP_DATE       @"photo_stamp_date"
+#define TYPE_PHOTO_STAMP_TIME       @"photo_stamp_time"
+#define TYPE_PHOTO_STAMP_DRIVERID   @"photo_stamp_driverid"
+#define TYPE_CAPTURE_MODE           @"capture_mode"
+#define TYPE_CONTINUE_SHOT          @"continue_shot"
+#define TYPE_PHOTO_BURST            @"photo_burst"
+#define TYPE_PHOTO_SELFTIMER        @"photo_selftimer"
+#define TYPE_PHOTO_FISHEYE_MODE     @"photo_fisheye_mode"
+#define TYPE_PHOTO_WDR              @"photo_wdr"
+#define TYPE_PHOTO_SHARPNESS        @"photo_sharpness"
+#define TYPE_PHOTO_EV               @"photo_ev"
+#define TYPE_PHOTO_ISO              @"photo_iso"
+#define TYPE_PHOTO_WB               @"photo_wb"
+#define TYPE_PHOTO_EXP_TIME         @"photo_exp_time"
+#define TYPE_PHOTO_SPOT_METERING    @"photo_spot_metering"
+#define TYPE_PHOTO_SCENE            @"photo_scene"
+#define TYPE_PHOTO_OUTPUT_FORMAT    @"photo_output_format"
+#define TYPE_PHOTO_DIS              @"photo_dis"
 
 // GPS Settings
 #define TYPE_GPS                        @"gps"
@@ -56,6 +74,7 @@
 // Other Settings
 #define TYPE_MODE                           @"mode"
 #define TYPE_FISHEYE_MODE                   @"fisheye_mode"
+#define TYPE_TIMELAPSE_DURATION             @"timelapse_duration"
 #define TYPE_STAMP                          @"stamp"
 #define TYPE_EV                             @"ev"
 #define TYPE_DUAL_STREAMS                   @"dual_streams"
@@ -99,7 +118,6 @@
 #define TYPE_HTTP_DOWNLOAD_PORT             @"http_download_port"
 #define TYPE_HTTP_PLAYBACK_PORT             @"http_playback_port"
 #define TYPE_VIDEO_DELAY_POWER_OFF          @"video_delay_power_off"
-#define TYPE_VIDEO_EV                       @"video_ev"
 #define TYPE_AUTO_SCREEN_POWEROFF           @"auto_screen_poweroff"
 #define TYPE_UPDATE_FIRMWARE                @"update_firmware"
 #define TYPE_LIGHT_FREQUENCY                @"light_frequency"
@@ -139,6 +157,13 @@
 #define TYPE_GSENSOR_Y                      @"gsensor_y"
 #define TYPE_GSENSOR_Z                      @"gsensor_z"
 #define TYPE_FILE_COVER                     @"file_cover"
+#define TYPE_NIGHT_MODE                     @"night_mode"
+#define TYPE_PARKING_TIMELAPSE              @"parking_timelapse"
+#define TYPE_POWERON_ACTION                 @"poweron_action"
+#define TYPE_SPOT_METERING                  @"spot_metering"
+#define TYPE_DATE_FORMAT                    @"date_format"
+#define TYPE_BACK_MIRROR                    @"back_mirror"
+#define TYPE_ADAS                           @"adas"
 
 // Settings Info
 #define TYPE_STATUS                 @"status"
@@ -148,6 +173,7 @@
 #define TYPE_CAMERA_FREE            @"camera_free"
 #define TYPE_CAMERA_TOTAL           @"camera_total"
 #define TYPE_BATTERY_LEVEL          @"battery_level"
+#define TYPE_GPS_STATUS             @"gps_status"
 
 // Setting Option Key
 #define KEY_ERROR_CODE                                  @"errorCode"
@@ -378,6 +404,8 @@ typedef enum {
     ERROR_WIFI_DISABLED = -31,
     ERROR_RTMP_IS_ON = -32,
     ERROR_P2P_IS_ON = -33,
+    ERROR_REJECT_DEVICE_IN_MENU_MODE = -34,
+    ERROR_WIFI_IP_ERROR = -35,
     ERROR_GATT_INVALID_HANDLE = -100,
     ERROR_GATT_READ_NOT_PERMIT = -101,
     ERROR_GATT_WRITE_NOT_PERMIT = -102,
@@ -487,6 +515,7 @@ typedef enum {
     NOTIFICATION_WIFI_ON = 64,
     NOTIFICATION_WIFI_OFF = 65,
     NOTIFICATION_REFRESH_SETTING_LIST = 66,
+    NOTIFICATION_SETTINGINFOS_CHANGED = 67,
 } FNNotification;
 
 #endif /* FNConstants_h */

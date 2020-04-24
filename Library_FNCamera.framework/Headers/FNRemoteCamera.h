@@ -12,12 +12,15 @@
 static const NSUInteger REMOTECAMERA_DEFAULT_TIMEOUT = NSIntegerMax;
 
 @interface FNRemoteCamera : NSObject
+NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<FNListenerDelegate> delegate;
 
 + (void)setIdentifier:(NSString *)identifier;
 
-+ (NSDictionary *)getWifiGatewayInfo;
++ (NSString *)getSDKVersion;
+
++ (nullable NSDictionary *)getWifiGatewayInfo;
 
 - (void)setCustomTimeout:(NSUInteger)millis;
 
@@ -25,8 +28,8 @@ static const NSUInteger REMOTECAMERA_DEFAULT_TIMEOUT = NSIntegerMax;
 
 - (NSDictionary *)connect:(NSString *)ip isLiveMode:(BOOL)isLiveMode;
 - (NSDictionary *)connect:(NSString *)ip isLiveMode:(BOOL)isLiveMode timeout:(NSUInteger)millis;
-- (NSDictionary *)connect:(NSString *)ip secret:(NSData *)secret isLiveMode:(BOOL)isLiveMode;
-- (NSDictionary *)connect:(NSString *)ip secret:(NSData *)secret isLiveMode:(BOOL)isLiveMode timeout:(NSUInteger)millis;
+- (NSDictionary *)connect:(NSString *)ip secret:(nullable NSData *)secret isLiveMode:(BOOL)isLiveMode;
+- (NSDictionary *)connect:(NSString *)ip secret:(nullable NSData *)secret isLiveMode:(BOOL)isLiveMode timeout:(NSUInteger)millis;
 - (NSDictionary *)disconnect;
 - (NSDictionary *)disconnect:(NSUInteger)millis;
 
@@ -64,36 +67,48 @@ static const NSUInteger REMOTECAMERA_DEFAULT_TIMEOUT = NSIntegerMax;
 - (NSDictionary *)getSetting:(NSString *)type timeout:(NSUInteger)millis;
 - (NSDictionary *)getSettingOptions:(NSString *)type;
 - (NSDictionary *)getSettingOptions:(NSString *)type timeout:(NSUInteger)millis;
-- (NSDictionary *)setSetting:(NSString *)type param:(NSString *)param;
-- (NSDictionary *)setSetting:(NSString *)type param:(NSString *)param timeout:(NSUInteger)millis;
-- (NSDictionary *)setSetting:(NSString *)type param:(NSString *)param resetLive:(BOOL)resetLive;
-- (NSDictionary *)setSetting:(NSString *)type param:(NSString *)param resetLive:(BOOL)resetLive timeout:(NSUInteger)millis;
+- (NSDictionary *)setSetting:(NSString *)type param:(nullable NSString *)param;
+- (NSDictionary *)setSetting:(NSString *)type param:(nullable NSString *)param timeout:(NSUInteger)millis;
+- (NSDictionary *)setSetting:(NSString *)type param:(nullable NSString *)param resetLive:(BOOL)resetLive;
+- (NSDictionary *)setSetting:(NSString *)type param:(nullable NSString *)param resetLive:(BOOL)resetLive timeout:(NSUInteger)millis;
 
 - (NSDictionary *)deleteFile:(NSString *)srcPath;
 - (NSDictionary *)deleteFile:(NSString *)srcPath timeout:(NSUInteger)millis;
-- (NSDictionary *)getStreamingPath:(NSString *)srcPath protocol:(NSString *)protocol;
-- (NSDictionary *)getStreamingPath:(NSString *)srcPath protocol:(NSString *)protocol timeout:(NSUInteger)millis;
+- (NSDictionary *)getStreamingPath:(NSString *)srcPath protocol:(nullable NSString *)protocol;
+- (NSDictionary *)getStreamingPath:(NSString *)srcPath protocol:(nullable NSString *)protocol timeout:(NSUInteger)millis;
+- (NSDictionary *)playStreaming:(NSString *)srcPath;
+- (NSDictionary *)playStreaming:(NSString *)srcPath timeout:(NSUInteger)millis;
+- (NSDictionary *)resumeStreaming;
+- (NSDictionary *)resumeStreaming:(NSUInteger)millis;
+- (NSDictionary *)pauseStreaming;
+- (NSDictionary *)pauseStreaming:(NSUInteger)millis;
+- (NSDictionary *)stopStreaming;
+- (NSDictionary *)stopStreaming:(NSUInteger)millis;
 
-- (void)downloadFile:(id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority append:(BOOL)append;
-- (void)downloadFile:(id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority append:(BOOL)append timeout:(NSUInteger)millis;
-- (void)stopDownloadFile:(NSString *)srcPath deleteCache:(BOOL)deleteCache;
-- (void)stopDownloadFile:(NSString *)srcPath deleteCache:(BOOL)deleteCache timeout:(NSUInteger)millis;
+- (void)downloadFile:(nullable id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority append:(BOOL)append;
+- (void)downloadFile:(nullable id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority append:(BOOL)append timeout:(NSUInteger)millis;
+- (void)stopDownloadFile:(nullable NSString *)srcPath deleteCache:(BOOL)deleteCache;
+- (void)stopDownloadFile:(nullable NSString *)srcPath deleteCache:(BOOL)deleteCache timeout:(NSUInteger)millis;
+- (BOOL)isFileDownloading:(nullable NSString *)srcPath;
 
-- (void)downloadThumb:(id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority;
-- (void)downloadThumb:(id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority timeout:(NSUInteger)millis;
-- (void)stopDownloadThumb:(NSString *)srcPath;
-- (void)stopDownloadThumb:(NSString *)srcPath timeout:(NSUInteger)millis;
+- (void)downloadThumb:(nullable id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority;
+- (void)downloadThumb:(nullable id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath top:(BOOL)top priority:(int)priority timeout:(NSUInteger)millis;
+- (void)stopDownloadThumb:(nullable NSString *)srcPath;
+- (void)stopDownloadThumb:(nullable NSString *)srcPath timeout:(NSUInteger)millis;
+- (BOOL)isThumbDownloading:(nullable NSString *)srcPath;
 
-- (void)uploadFile:(id)userInfo srcPath:(NSString *)srcPath destPath:(NSString *)destPath top:(BOOL)top priority:(int)priority;
-- (void)uploadFile:(id)userInfo srcPath:(NSString *)srcPath destPath:(NSString *)destPath top:(BOOL)top priority:(int)priority timeout:(NSUInteger)millis;
-- (void)stopUploadFile:(NSString *)destPath;
-- (void)stopUploadFile:(NSString *)destPath timeout:(NSUInteger)millis;
+- (void)uploadFile:(nullable id)userInfo srcPath:(NSString *)srcPath destPath:(NSString *)destPath top:(BOOL)top priority:(int)priority;
+- (void)uploadFile:(nullable id)userInfo srcPath:(NSString *)srcPath destPath:(NSString *)destPath top:(BOOL)top priority:(int)priority timeout:(NSUInteger)millis;
+- (void)stopUploadFile:(nullable NSString *)destPath;
+- (void)stopUploadFile:(nullable NSString *)destPath timeout:(NSUInteger)millis;
+- (BOOL)isFileUploading:(nullable NSString *)destPath;
 
 - (void)actionComplete:(FNNotification)notificationId;
 
-- (NSString *)typeOut:(NSString *)type;
-- (NSString *)paramOut:(NSString *)type param:(NSString *)param;
+- (nullable NSString *)typeOut:(NSString *)type;
+- (nullable NSString *)paramOut:(NSString *)type param:(NSString *)param;
 
 + (void)logListener:(void(^)(NSString *msg))listener;
 
 @end
+NS_ASSUME_NONNULL_END

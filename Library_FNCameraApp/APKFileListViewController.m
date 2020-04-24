@@ -228,6 +228,7 @@
                     file.previewImage = image;
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     [self.preveiwImageDic setObject:UIImagePNGRepresentation(image) forKey:file.name];
+//                        [self.preveiwImageDic setObject:image forKey:file.name];
                     });
                     [weakSelf.tableView reloadRowsAtIndexPaths:indexArr withRowAnimation:UITableViewRowAnimationAutomatic];
                 }
@@ -397,7 +398,7 @@
                     self.goToPlayerVC = YES;
                     NSDictionary *response = [self.remoteCamera getStreamingPath:file.path protocol:nil];
                     url = response[@"param"];
-                    [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
+//                    [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
                 }
             }];
         }else{

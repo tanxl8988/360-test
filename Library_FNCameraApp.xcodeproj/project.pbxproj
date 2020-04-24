@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04FF74D12452765C00029719 /* Library_FNCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FF74CF2452729700029719 /* Library_FNCamera.framework */; };
+		04FF74D22452765C00029719 /* Library_FNCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04FF74CF2452729700029719 /* Library_FNCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6599BDA01C082E1400D31911 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599BD9F1C082E1400D31911 /* main.m */; };
 		6599BDA31C082E1400D31911 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6599BDA21C082E1400D31911 /* AppDelegate.m */; };
 		6599BDA91C082E1400D31911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6599BDA71C082E1400D31911 /* Main.storyboard */; };
@@ -26,8 +28,6 @@
 		D671A64A223F4C54005221BB /* APKFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D671A649223F4C54005221BB /* APKFileViewController.m */; };
 		D671A650223F675E005221BB /* APKFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D671A64F223F675E005221BB /* APKFileView.m */; };
 		D671A652223F6768005221BB /* APKFileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D671A651223F6768005221BB /* APKFileView.xib */; };
-		D672B8A922FBB3B300E1D560 /* Library_FNCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */; };
-		D672B8AA22FBB3B300E1D560 /* Library_FNCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D672B8AD22FBBEBE00E1D560 /* APKAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D672B8AC22FBBEBE00E1D560 /* APKAlertTool.m */; };
 		D6761384230B9D0000B89E64 /* APKProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6761383230B9D0000B89E64 /* APKProgressView.m */; };
 		D6761386230B9D0F00B89E64 /* APKProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6761385230B9D0F00B89E64 /* APKProgressView.xib */; };
@@ -62,7 +62,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D685A182240F7855007BCD14 /* FNPlayerKit.framework in Embed Frameworks */,
-				D672B8AA22FBB3B300E1D560 /* Library_FNCamera.framework in Embed Frameworks */,
+				04FF74D22452765C00029719 /* Library_FNCamera.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04FF74CF2452729700029719 /* Library_FNCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Library_FNCamera.framework; sourceTree = "<group>"; };
 		6599BD9B1C082E1400D31911 /* Library_FNCameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library_FNCameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6599BD9F1C082E1400D31911 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6599BDA11C082E1400D31911 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		D671A64E223F675E005221BB /* APKFileView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKFileView.h; sourceTree = "<group>"; };
 		D671A64F223F675E005221BB /* APKFileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APKFileView.m; sourceTree = "<group>"; };
 		D671A651223F6768005221BB /* APKFileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APKFileView.xib; sourceTree = "<group>"; };
-		D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Library_FNCamera.framework; sourceTree = "<group>"; };
 		D672B8AB22FBBEBE00E1D560 /* APKAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APKAlertTool.h; sourceTree = "<group>"; };
 		D672B8AC22FBBEBE00E1D560 /* APKAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APKAlertTool.m; sourceTree = "<group>"; };
 		D6761382230B9D0000B89E64 /* APKProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APKProgressView.h; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D685A181240F7855007BCD14 /* FNPlayerKit.framework in Frameworks */,
-				D672B8A922FBB3B300E1D560 /* Library_FNCamera.framework in Frameworks */,
+				04FF74D12452765C00029719 /* Library_FNCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +246,8 @@
 		6599BD921C082E1400D31911 = {
 			isa = PBXGroup;
 			children = (
+				04FF74CF2452729700029719 /* Library_FNCamera.framework */,
 				D685A17D240F7801007BCD14 /* FNPlayerKit.framework */,
-				D672B8A522FBAE3F00E1D560 /* Library_FNCamera.framework */,
 				6599BD9D1C082E1400D31911 /* Library_FNCameraApp */,
 				6599BD9C1C082E1400D31911 /* Products */,
 			);
