@@ -49,6 +49,9 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *remainingSpaceCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *versionCell;
 @property (weak, nonatomic) IBOutlet UILabel *resolutionL;
+@property (weak, nonatomic) IBOutlet UITableViewCell *WiFiSetCell;
+@property (weak, nonatomic) IBOutlet UILabel *WiFILabel;
+
 @property (assign,nonatomic) BOOL allowStopRecord;
 
 
@@ -70,9 +73,10 @@
         UILabel *l = self.namesL[i];
         l.text = self.nameArr[i];
     }
-    
+    __weak typeof (self) weakself = self;
+
     [[NSNotificationCenter defaultCenter] addObserverForName:@"WIFIISCLOSE" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        self.isConnected = NO;
+        weakself.isConnected = NO;
     }];
  
     
@@ -174,6 +178,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak typeof (self) weakself = self;
+    
     if (!self.isConnected) {
         [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
         return;
@@ -190,48 +196,109 @@
         
         if (cell.tag == 100) {
             
-            self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"确定要恢复出厂设置吗", nil) confirmHandler:^(UIAlertAction *action) {
+            weakself.HUD = [MBProgressHUD showHUDAddedTo:weakself.view animated:YES];
+            [APKAlertTool showAlertInViewController:weakself title:nil message:NSLocalizedString(@"确定要格式化吗", nil) confirmHandler:^(UIAlertAction *action) {
                 
-                [self.HUD hideAnimated:YES];
-                NSDictionary *response = [self.remoteCamera setSetting:@"format" param:nil];
+                [weakself.HUD hideAnimated:YES];
+                NSDictionary *response = [weakself.remoteCamera setSetting:@"format" param:nil];
                 if([response[KEY_ERROR_CODE] integerValue] == 0)
-                    [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"格式化成功", nil)];
+                    [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"格式化成功", nil)];
                 else
-                    [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"格式化失败", nil)];
+                    [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"格式化失败", nil)];
                 
             } cancelHandler:^(UIAlertAction *action) {
-                [self.HUD hideAnimated:YES];
+                [weakself.HUD hideAnimated:YES];
             }];
             
         }else if(cell.tag == 101){
             
-            self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"确定要恢复出厂设置吗", nil) confirmHandler:^(UIAlertAction *action) {
+            weakself.HUD = [MBProgressHUD showHUDAddedTo:weakself.view animated:YES];
+            [APKAlertTool showAlertInViewController:weakself title:nil message:NSLocalizedString(@"确定要恢复出厂设置吗", nil) confirmHandler:^(UIAlertAction *action) {
                 
-                [self.HUD hideAnimated:YES];
-                NSDictionary *response = [self.remoteCamera setSetting:@"camera_reset" param:nil];
+                [weakself.HUD hideAnimated:YES];
+                NSDictionary *response = [weakself.remoteCamera setSetting:@"camera_reset" param:nil];
                 if([response[KEY_ERROR_CODE] integerValue] == 0)
-                    [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"恢复出厂设置成功", nil)];
+                    [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"恢复出厂设置成功", nil)];
                 else
-                    [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"恢复出厂设置失败", nil)];
+                    [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"恢复出厂设置失败", nil)];
                 
             } cancelHandler:^(UIAlertAction *action) {
-                [self.HUD hideAnimated:YES];
+                [weakself.HUD hideAnimated:YES];
             }];
+        }else if(cell == self.WiFiSetCell){
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"WIFI设置"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+            __block int i = 0;
+
+              UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                    handler:^(UIAlertAction * action) {
+                                                                        //响应事件
+                  NSString *ssidStr = alert.textFields[1].text;
+                  if (ssidStr.length == 0) {
+                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置失败，SSID不得为空", nil)];
+                      return;
+                  }
+                  
+                  NSString *passWordStr = alert.textFields[1].text;
+                  if (passWordStr.length < 8) {
+                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置失败，密码不得小于8位", nil)];
+                      return;
+                  }
+                for(UITextField *text in alert.textFields){
+                    NSLog(@"text = %@", text.text);
+                    NSString *Str = i == 0 ? @"wifi_ssid" : @"wifi_password";
+                    NSDictionary *respose = [self.remoteCamera setSetting:Str param:text.text];
+                    
+                    if([respose[KEY_ERROR_CODE] integerValue] != 0){
+                        [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置失败", nil)];
+                        break;
+                    }
+                    
+                    if(i == 1){
+                        [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置成功,重启机器之后生效", nil)];
+                    }
+                    i++;
+                }
+            }];
+              UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                                   handler:^(UIAlertAction * action) {
+                                                                       //响应事件
+                                                                       NSLog(@"action = %@", alert.textFields);
+                                                                   }];
+            FNISDKToolViewController *previewVC = self.tabBarController.viewControllers.firstObject;
+            __block NSString *ssid = previewVC.SSID;
+            __block NSString *password = previewVC.password;
+              [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                  textField.text = ssid;
+                  textField.keyboardType = UIKeyboardTypeASCIICapable;
+              }];
+              [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                  textField.text = password;
+                  textField.keyboardType = UIKeyboardTypeNumberPad;
+
+//                  textField.secureTextEntry = YES;
+              }];
+                
+              [alert addAction:okAction];
+              [alert addAction:cancelAction];
+              [self presentViewController:alert animated:YES completion:nil];
+            
         }else if (cell.tag == 103){
             
-            NSDictionary *response = [self.remoteCamera setSetting:@"camera_clock" param:[self currentTime]];
+            [self.remoteCamera stopRecord];
+            NSDictionary *response = [weakself.remoteCamera setSetting:@"camera_clock" param:[weakself currentTime]];
             if([response[KEY_ERROR_CODE] integerValue] == 0)
-                [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"校准时间成功", nil)];
+                [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"校准时间成功", nil)];
             else
-                [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"校准时间失败", nil)];
+                [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"校准时间失败", nil)];
         }else{
             
-            NSString *type = self.alertTypeArr[cell.tag - 1];
-            NSArray *params = self.alertParamArr[cell.tag - 1];
-            self.currentL = self.valuesL[cell.tag - 1];
-            [self setAlertActionWithType:type andPatam:params];
+            NSString *type = weakself.alertTypeArr[cell.tag - 1];
+            NSArray *params = weakself.alertParamArr[cell.tag - 1];
+            weakself.currentL = weakself.valuesL[cell.tag - 1];
+            [weakself setAlertActionWithType:type andPatam:params];
         }
     }];
 }
@@ -252,6 +319,11 @@
 {
     __weak typeof(self) weakSelf = self;
     
+    if (!self.isRecord || self.isRecord == NO) {
+        recordState(YES);
+        return;
+    }
+    
     if (!self.allowStopRecord) {
         [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"执行此操作需停止录像?", nil) confirmHandler:^(UIAlertAction *action) {
             
@@ -259,7 +331,7 @@
             recordState(YES);
             [weakSelf.remoteCamera stopRecord];
             dispatch_async(dispatch_get_main_queue(), ^{
-            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"录像已停止", nil)];
+            [APKAlertTool showAlertInView:weakSelf.view andText:NSLocalizedString(@"录像已停止", nil)];
             });
         } cancelHandler:^(UIAlertAction *action) {
             recordState(NO);
@@ -284,7 +356,7 @@
         
         UIAlertAction* action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
             
-            self.HUD = [MBProgressHUD showHUDAddedTo:self.keyView animated:YES];
+            weakself.HUD = [MBProgressHUD showHUDAddedTo:weakself.keyView animated:YES];
             NSDictionary *response = [weakself.remoteCamera setSetting:type param:param];
             [weakself checkErrorStatus:response isAlertAction:YES andTitle:title];
         }];
@@ -314,7 +386,7 @@
             sender.on = !sender.isOn;
             return;
         }else{
-            weakSelf.HUD = [MBProgressHUD showHUDAddedTo:self.keyView animated:YES];
+            weakSelf.HUD = [MBProgressHUD showHUDAddedTo:weakSelf.keyView animated:YES];
             [weakSelf.tableView setScrollEnabled:NO];
             
             NSString *type = weakSelf.switchTypeArr[sender.tag];
@@ -330,20 +402,22 @@
 
 - (void) checkErrorStatus:(NSDictionary*) response isAlertAction:(BOOL)isAlert andTitle:(NSString*)title {
     
+    __weak typeof (self) weakself = self;
+
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        [self.HUD hideAnimated:YES afterDelay:1];
+        [weakself.HUD hideAnimated:YES afterDelay:1];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-            [self.tableView setScrollEnabled:YES];
+            [weakself.tableView setScrollEnabled:YES];
             if ([response[KEY_ERROR_CODE] integerValue] != 0) {
                 
-                [APKAlertTool showAlertInViewController:self title:nil message:@"设置失败" handler:^(UIAlertAction *action) {
+                [APKAlertTool showAlertInViewController:weakself title:nil message:@"设置失败" handler:^(UIAlertAction *action) {
                     nil;
                 }];
             }else{
                 
-                if (isAlert == YES) self.currentL.text = title;
+                if (isAlert == YES) weakself.currentL.text = title;
 //                [APKAlertTool showAlertInViewController:self title:nil message:@"设置成功" handler:^(UIAlertAction *action) {
 //                    nil;
 //                }];
@@ -405,7 +479,7 @@
 -(NSArray *)cellArr
 {
     if (!_cellArr) {
-        _cellArr = @[@[self.resolutionCell,self.exposureCell],@[self.correctTimeCell,self.wifiModeCell],@[self.G_sensorCell,self.voiceSetCell,self.languageCell,self.formatSDCardCell,self.factorySetCell],@[self.remainingSpaceCell,self.versionCell]];
+        _cellArr = @[@[self.resolutionCell,self.exposureCell],@[self.correctTimeCell,self.wifiModeCell],@[self.G_sensorCell,self.voiceSetCell,self.languageCell,self.formatSDCardCell,self.factorySetCell,self.WiFiSetCell],@[self.remainingSpaceCell,self.versionCell]];
     }
     return _cellArr;
 }

@@ -62,8 +62,8 @@
     
     if (self.type == APKTypeImage || self.type == APKTypeVideo) {
         self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self action:@selector(getDVRFiles) forControlEvents:UIControlEventValueChanged];
-//        [self.tableView addSubview:self.refreshControl];
+        [self.refreshControl addTarget:self action:@selector(reflesh) forControlEvents:UIControlEventValueChanged];
+        [self.tableView addSubview:self.refreshControl];
     }
 
 //    [self.collectionView sendSubviewToBack:self.refreshControl];
@@ -75,6 +75,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
     _requestCount = 0;
+}
+
+-(void) reflesh
+{
+    [self.refreshControl endRefreshing];
 }
 
 #pragma mark FNListenerDelegate
@@ -138,6 +143,13 @@
     NSString *type = self.type == APKTypeLocalVideo ? VIDEO : IMAGE;
     NSArray *localFilesArr = [LocalFileInfo retrieveLocalfileInfosWithType:type offset:0 count:1000 context:[APKMOCManager sharedInstance].context];
     [self.dataArr addObjectsFromArray:localFilesArr];
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    int count = (int)self.dataArr.count - 1;
+    for (int i = 0; i <= count; i++) {
+        [arr addObject:self.dataArr[count - i]];
+    }
+    self.dataArr = [NSMutableArray arrayWithArray:arr];
     [self.HUD hideAnimated:YES];
     
     if (localFilesArr.count == 0)
@@ -234,15 +246,15 @@
                 }
             });
             weakSelf.requestCount++;
-            NSLog(@"getFile.........%zd",arr2.count);
-            if (weakSelf.requestCount < weakSelf.dataArr.count - 1) {
+            NSLog(@"getFile.........%@",file.name);
+            if (weakSelf.requestCount <= weakSelf.dataArr.count - 1) {
                 [weakSelf getPreveiwImage];
             }
         });
     }else{
-        NSLog(@"alreadyHaveFile.......");
+        NSLog(@"alreadyHaveFile.......%@",file.name);
         _requestCount++;
-        if (_requestCount < self.dataArr.count - 1) {
+        if (_requestCount <= self.dataArr.count - 1) {
             [self getPreveiwImage];
         }
     }
@@ -250,6 +262,11 @@
 
 -(void)alertToStopRecord:(void(^)(bool state))recordState;
 {
+    if (!self.previewVC.isRecord || self.previewVC.isRecord == NO) {
+        recordState(YES);
+        return;
+    }
+    
     __weak typeof(self) weakSelf = self;
     if (!self.allowStopRecord) {
         [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"执行此操作需停止录像?", nil) handler:^(UIAlertAction *action) {
@@ -385,6 +402,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (self.type == APKTypeVideo) 
+        return;
+    
+    __weak typeof (self) weakself = self;
+
     __block NSString *url = @"";
     APKDVRFile *file = self.dataArr[indexPath.row];
 
@@ -395,8 +418,8 @@
                 if (!state) {
                     return;
                 }else{
-                    self.goToPlayerVC = YES;
-                    NSDictionary *response = [self.remoteCamera getStreamingPath:file.path protocol:nil];
+                    weakself.goToPlayerVC = YES;
+                    NSDictionary *response = [weakself.remoteCamera getStreamingPath:file.path protocol:nil];
                     url = response[@"param"];
 //                    [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
                 }
@@ -417,7 +440,7 @@
 {
     APKRemotePlayerViewController *playerVC = segue.destinationViewController;
     playerVC.remoteCamera = self.remoteCamera;
-    playerVC.player = self.player;
+//    playerVC.player = self.player;
     playerVC.previewVC = self.previewVC;
     playerVC.url = sender;
     playerVC.type = self.type;
@@ -426,13 +449,14 @@
 #pragma mark - APKDVRFileDelegate
 -(void)clickDownloadButtonAction:(NSInteger)tag
 {
-    
+    __weak typeof (self) weakself = self;
+
     [self alertToStopRecord:^(bool state) {
         if (!state) {
             return;
         }else{
-            self.currentFileindex = tag;
-            [self downloadFile];
+            weakself.currentFileindex = tag;
+            [weakself downloadFile];
         }
     }];
 }

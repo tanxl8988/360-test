@@ -43,5 +43,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,retain) NSString *IP;
 @property (nonatomic,assign) BOOL isRecord;
 @property (nonatomic,assign) APKPreviewMode previewMode;
+@property (nonatomic,retain) NSString *SSID;
+@property (nonatomic,retain) NSString *password;
 + (instancetype)sharedInstance;
 @end
