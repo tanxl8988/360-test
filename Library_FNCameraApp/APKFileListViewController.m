@@ -23,6 +23,9 @@
 
 #define VIDEO @"Video"
 #define IMAGE @"Image"
+#define EVENT @"Event"
+#define PARKING @"Parking"
+
 
 @interface APKFileListViewController ()<APKFileCellDelegate,FNListenerDelegate,APKProgressViewDelegate,APKLocalFileCellDelegate>
 @property (nonatomic,retain) NSMutableArray *dataArr;
@@ -39,6 +42,8 @@
 @property (assign,nonatomic) BOOL goToPlayerVC;
 @property (nonatomic,retain) NSArray *doubleDataArr;
 @property (nonatomic,retain) NSString *tempDeletePath;
+@property (nonatomic,assign) BOOL isRefleshing;
+@property (nonatomic,assign) BOOL isDownloading;
 
 @end
 
@@ -51,7 +56,7 @@
     self.tableView.rowHeight = 66;
     [self.backButton setTitle:NSLocalizedString(@"返回", nil)];
     
-    if (self.type == APKTypeVideo || self.type == APKTypeImage)
+    if (self.type == APKTypeVideo || self.type == APKTypeImage || self.type == APKTypeEvent || self.type == APKTypeParking)
         self.isRemoteCameraSource = YES;
     
     self.remoteCamera.delegate = self;
@@ -60,11 +65,14 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    if (self.type == APKTypeImage || self.type == APKTypeVideo) {
+    if (self.type == APKTypeImage || self.type == APKTypeVideo || self.type == APKTypeEvent || self.type == APKTypeParking) {
         self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self action:@selector(reflesh) forControlEvents:UIControlEventValueChanged];
+        [self.refreshControl addTarget:self action:@selector(pullRefresh) forControlEvents:UIControlEventValueChanged];
         [self.tableView addSubview:self.refreshControl];
     }
+    
+    [self addObserver:self forKeyPath:@"previewVC.isConnected" options:NSKeyValueObservingOptionNew  context:nil];
+
 
 //    [self.collectionView sendSubviewToBack:self.refreshControl];
     
@@ -77,40 +85,68 @@
     _requestCount = 0;
 }
 
--(void) reflesh
-{
-    [self.refreshControl endRefreshing];
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"previewVC.isConnected"]) {
+        BOOL newValue = [change[@"new"] boolValue];
+        if (newValue == NO) {
+            [self disconnected];
+        }
+    }
 }
 
-#pragma mark FNListenerDelegate
-- (void)onDisconnected 
+-(void) pullRefresh
+{
+    self.isRefleshing = YES;
+    [self refreshPage];
+//    [self.refreshControl endRefreshing];
+}
+
+- (void)disconnected
 {
     __weak typeof(self) weakSelf = self;
-    [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:^(UIAlertAction *action) {
+     [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) cancelHandler:^(UIAlertAction *action) {
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
 -(void)refreshPage
 {
-    [self.dataArr removeAllObjects];
     self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSString *title = @"";
     switch (self.type) {
         case APKTypeVideo:
-            title = NSLocalizedString(@"DVR视频", nil);
+            title = NSLocalizedString(@"视频", nil);
+            [self performSelector:@selector(getDVRFiles) withObject:nil afterDelay:0.1f];
+            break;
+        case APKTypeEvent:
+            title = NSLocalizedString(@"事件", nil);
+            [self performSelector:@selector(getDVRFiles) withObject:nil afterDelay:0.1f];
+            break;
+        case APKTypeParking:
+            title = NSLocalizedString(@"停车监控", nil);
             [self performSelector:@selector(getDVRFiles) withObject:nil afterDelay:0.1f];
             break;
         case APKTypeImage:
-            title = NSLocalizedString(@"DVR图片", nil);
+            title = NSLocalizedString(@"照片", nil);
             [self performSelector:@selector(getDVRFiles) withObject:nil afterDelay:0.1f];
             break;
         case APKTypeLocalVideo:
-            title = NSLocalizedString(@"本地视频", nil);
+            title = NSLocalizedString(@"视频", nil);
+            [self getLocalFiles];
+            break;
+        case APKTypeLocalEvent:
+            title = NSLocalizedString(@"事件", nil);
+            [self getLocalFiles];
+            break;
+        case APKTypeLocalParking:
+            title = NSLocalizedString(@"停车监控", nil);
             [self getLocalFiles];
             break;
         default:
-            title = NSLocalizedString(@"本地图片", nil);
+            title = NSLocalizedString(@"照片", nil);
             [self getLocalFiles];
             break;
     }
@@ -140,7 +176,7 @@
 
 -(void)getLocalFiles
 {
-    NSString *type = self.type == APKTypeLocalVideo ? VIDEO : IMAGE;
+    NSString *type = [self getLocalVideoType];
     NSArray *localFilesArr = [LocalFileInfo retrieveLocalfileInfosWithType:type offset:0 count:1000 context:[APKMOCManager sharedInstance].context];
     [self.dataArr addObjectsFromArray:localFilesArr];
     
@@ -160,30 +196,42 @@
 
 -(void)getDVRFiles
 {
-    if (self.dataArr.count > 0) [self.dataArr removeAllObjects];
+//    if (self.dataArr.count > 0) [self.dataArr removeAllObjects];
+    self.dataArr = [NSMutableArray array];
     
     NSDictionary *response = @{};
     if (self.type == APKTypeVideo)
         response = [self.remoteCamera getFileList:[NSString stringWithFormat:@"%@video",self.rootPath]];
-    else
+    else if(self.type == APKTypeImage)
         response = [self.remoteCamera getFileList:[NSString stringWithFormat:@"%@snapshots",self.rootPath]];
+    else if(self.type == APKTypeEvent)
+          response = [self.remoteCamera getFileList:[NSString stringWithFormat:@"%@event",self.rootPath]];
+    else if(self.type == APKTypeParking)
+          response = [self.remoteCamera getFileList:[NSString stringWithFormat:@"%@parking",self.rootPath]];
 
     NSString *containStr = @"";
     if (self.type == APKTypeVideo) {
         containStr = @"mp4";
     }else if(self.type == APKTypeImage){
         containStr = @"snapshot";
+    }else if(self.type == APKTypeEvent){
+        containStr = @"event";
+    }else if(self.type == APKTypeParking){
+        containStr = @"parking";
     }
-    NSString *type = self.type == APKTypeVideo ? VIDEO : IMAGE;
+    
+    NSString *type = [self getLocalVideoType];
     NSArray *Arr = response[@"param"];
     for (NSDictionary *dic in Arr) {
         
-        if ([dic[@"name"] containsString:containStr]) {
+        if ([dic[@"path"] containsString:containStr]) {
             APKDVRFile *file = [[APKDVRFile alloc] init];
             file.date = [self UTCDateFromLocalString:dic[@"date"]];
             file.name = dic[@"name"];
             NSString *path = [dic[@"path"] stringByReplacingOccurrencesOfString:@"ss" withString:@"s/s"];
             path = [path stringByReplacingOccurrencesOfString:@"video" withString:@"video/"];
+            path = [path stringByReplacingOccurrencesOfString:@"event" withString:@"event/"];
+            path = [path stringByReplacingOccurrencesOfString:@"parking" withString:@"parking/"];
             file.path = path;
             file.size = dic[@"size"];
    
@@ -203,15 +251,16 @@
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     
-    if (self.type == APKTypeVideo) {
+    if (self.type == APKTypeVideo || self.type == APKTypeEvent || self.type == APKTypeParking) {
         if (self.dataArr.count > 0) {
             self.doubleDataArr = [NSArray arrayWithArray:self.dataArr];
+            self.requestCount = 0;
             [self getPreveiwImage];
         }
     }
     
     __weak typeof(self) weakSelf = self;
-    if (self.dataArr.count == 0 && (self.type == APKTypeImage || self.type == APKTypeVideo)) {
+    if (self.dataArr.count == 0 && (self.type == APKTypeImage || self.type == APKTypeVideo || self.type == APKTypeEvent || self.type == APKTypeParking)) {
         
         [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"没有获取到数据，是否继续获取?", nil) handler:^(UIAlertAction *action) {
             
@@ -220,21 +269,45 @@
     }
 }
 
+-(NSString *)getLocalVideoType
+{
+    NSString *type = @"";
+    switch (self.type) {
+        case APKTypeVideo:
+        case APKTypeLocalVideo:
+            type = VIDEO;
+            break;
+        case APKTypeEvent:
+        case APKTypeLocalEvent:
+            type = EVENT;
+            break;
+        case APKTypeParking:
+        case APKTypeLocalParking:
+            type = PARKING;
+            break;
+        default:
+            type = IMAGE;
+            break;
+    }
+    return type;
+}
+
 
 -(void)getPreveiwImage
 {
-    NSMutableDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"APKDVRFILEPREVIEWIMAGE"];
-    NSArray *arr2 = [dic allKeys];
-    APKDVRFile *file = self.dataArr.count > 0 ? self.dataArr[_requestCount] : self.doubleDataArr[_requestCount];
+    __block NSMutableDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"APKDVRFILEPREVIEWIMAGE"];
+    __block APKDVRFile *file = self.dataArr.count > 0 ? self.dataArr[_requestCount] : self.doubleDataArr[_requestCount];
     __weak typeof(self) weakSelf = self;
-    if (![arr2 containsObject:file.name]) {
+    if (![[dic allKeys] containsObject:file.name]) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSString *urlStr = [NSString stringWithFormat:@"http://%@%@",self.IP,file.path];
+
             UIImage *image = [[fileListCell new] firstFrameWithVideoURL:[NSURL URLWithString:urlStr] size:CGSizeMake(60, 60)];
             NSMutableArray *arr = weakSelf.dataArr.count > 0 ? weakSelf.dataArr : weakSelf.doubleDataArr;
             file.previewImage = image;
             NSInteger index = [arr indexOfObject:file];
             NSArray *indexArr = @[[NSIndexPath indexPathForRow:index inSection:0]];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (image && image != nil) {
                     file.previewImage = image;
@@ -262,10 +335,12 @@
 
 -(void)alertToStopRecord:(void(^)(bool state))recordState;
 {
-    if (!self.previewVC.isRecord || self.previewVC.isRecord == NO) {
-        recordState(YES);
-        return;
-    }
+    
+    NSDictionary *dic = [self.remoteCamera getSetting:@"status"];
+      if (![dic[@"param"] isEqualToString:@"record"]) {
+          recordState(YES);
+          return;
+      }
     
     __weak typeof(self) weakSelf = self;
     if (!self.allowStopRecord) {
@@ -313,14 +388,7 @@
         APKDVRFile *file = self.dataArr[indexPath.row];
         NSString *urlStr = [NSString stringWithFormat:@"http://%@%@",self.IP,file.path];
         
-        if (self.type == APKTypeVideo) {
-//            if (!self.isScrolling){
-//                cell.imageView.image = [cell firstFrameWithVideoURL:[NSURL URLWithString:urlStr] size:CGSizeMake(60, 60)];
-//            }else{
-//                if (!cell.imageView.image || cell.imageView.image == nil) {
-//                    cell.imageView.image = [cell firstFrameWithVideoURL:[NSURL URLWithString:urlStr] size:CGSizeMake(60, 60)];
-//                }
-//            }
+        if (self.type == APKTypeVideo || self.type == APKTypeEvent || self.type == APKTypeParking) {
             
             if (file.previewImage && file.previewImage != nil) {
                 cell.imageView.image = file.previewImage;
@@ -331,26 +399,6 @@
                     cell.imageView.image = [UIImage imageWithData:dic[file.name]];
             }
             
-//            NSMutableDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"APKDVRFILEPREVIEWIMAGE"];
-//            NSArray *arr = [dic allKeys];
-//            if ([arr containsObject:file.name]) {
-//                cell.imageView.image = [UIImage imageWithData:dic[file.name]];
-////                cell.imageView.image = file.previewImage;
-//            }else{
-//
-//                UIImage *image = file.previewImage;
-////                cell.imageView.image = image;
-//
-//                if (image && image != nil) {
-//                    NSArray *arr = [self.preveiwImageDic allKeys];
-//                    if (![arr containsObject:file.name]) {
-//                        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//                            [self.preveiwImageDic setObject:UIImagePNGRepresentation(image) forKey:file.name];
-//                        });
-//                    }
-//                }
-//            }
-            
         }else
             [cell.cellImage setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:nil];
 
@@ -360,6 +408,7 @@
         cell.cellDownloadBtn.tag = indexPath.row;
         cell.cellDownloadBtn.enabled = !file.isDownloaded ? YES : NO;
         cell.cellDeleteBtn.tag = indexPath.row;
+        [cell.cellDeleteBtn setTitle:NSLocalizedString(@"删除", nil) forState:UIControlStateNormal];
         NSString *downloadBtnTitle = file.isDownloaded == YES ? NSLocalizedString(@"已下载", nil) : NSLocalizedString(@"下载", nil);
         [cell.cellDownloadBtn setTitle:downloadBtnTitle forState:UIControlStateNormal];
         cell.delegate = self;
@@ -370,24 +419,29 @@
         LocalFileInfo *file = self.dataArr[indexPath.row];
         cell.cellTitle.text = file.name;
         cell.deleteBtn.tag = indexPath.row;
+        cell.shareBtn.tag = indexPath.row;
         cell.cellSize.text = [cell handleSizeStr:file.size];
-        if (!self.isScrolling) {
-            switch (self.type) {
-                case APKTypeLocalVideo:
-                {
-                    NSMutableDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"APKDVRFILEPREVIEWIMAGE"];
-                    NSArray *arr = [dic allKeys];
-                    if ([arr containsObject:file.name])
-                        cell.imageView.image = [UIImage imageWithData:dic[file.name]];
-                    else
-                        cell.cellImage.image = [cell getVideoPreViewImage:[NSURL fileURLWithPath:file.url]];
-                }
-                    break;
-                default:
-                    cell.cellImage.image = [UIImage imageWithContentsOfFile:file.url];
-                    break;
+        [cell.deleteBtn setTitle:NSLocalizedString(@"删除", nil) forState:UIControlStateNormal];
+        [cell.shareBtn setTitle:NSLocalizedString(@"分享", nil) forState:UIControlStateNormal];
+        switch (self.type) {
+            case APKTypeLocalVideo:
+            case APKTypeLocalEvent:
+            case APKTypeLocalParking:
+
+            {
+                NSMutableDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"APKDVRFILEPREVIEWIMAGE"];
+                NSArray *arr = [dic allKeys];
+                if ([arr containsObject:file.name])
+                    cell.imageView.image = [UIImage imageWithData:dic[file.name]];
+                else
+                    cell.cellImage.image = [cell getVideoPreViewImage:[NSURL fileURLWithPath:file.url]];
             }
+                break;
+            default:
+                cell.cellImage.image = [UIImage imageWithContentsOfFile:file.url];
+                break;
         }
+
         cell.delegate = self;
         return cell;
     }
@@ -403,7 +457,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (self.type == APKTypeVideo) 
+    if (self.type == APKTypeVideo)
         return;
     
     __weak typeof (self) weakself = self;
@@ -413,22 +467,23 @@
 
     if (self.isRemoteCameraSource) {
         
-        if (self.type == APKTypeVideo) {
-            [self alertToStopRecord:^(bool state) {
-                if (!state) {
-                    return;
-                }else{
-                    weakself.goToPlayerVC = YES;
-                    NSDictionary *response = [weakself.remoteCamera getStreamingPath:file.path protocol:nil];
-                    url = response[@"param"];
-//                    [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
-                }
-            }];
-        }else{
-            
+        if (self.type == APKTypeImage) {
             url = [NSString stringWithFormat:@"http://%@%@",self.IP,file.path];
             [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
         }
+        
+//        if (self.type == APKTypeVideo) {
+//            [self alertToStopRecord:^(bool state) {
+//                if (!state) {
+//                    return;
+//                }else{
+//                    weakself.goToPlayerVC = YES;
+//                    NSDictionary *response = [weakself.remoteCamera getStreamingPath:file.path protocol:nil];
+//                    url = response[@"param"];
+////                    [self performSegueWithIdentifier:@"pushRemotePlayer" sender:url];
+//                }
+//            }];
+//        }
     }else{
         
         LocalFileInfo *file = self.dataArr[indexPath.row];
@@ -455,7 +510,12 @@
         if (!state) {
             return;
         }else{
+            if (weakself.isDownloading == YES) {
+                return;
+            }
+            
             weakself.currentFileindex = tag;
+            weakself.isDownloading = YES;
             [weakself downloadFile];
         }
     }];
@@ -463,6 +523,8 @@
 
 -(void)downloadFile
 {
+    [self.remoteCamera stopRecord];
+    
     APKDVRFile *file = self.dataArr[self.currentFileindex];
     NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
     NSString *savePath = [cachesDir stringByAppendingPathComponent:file.name];
@@ -474,6 +536,7 @@
 {
     self.tableView.userInteractionEnabled = enable;
     self.backButton.enabled = enable;
+    self.isDownloading = !enable;
 }
 
 - (void)onFileTransfer:(id)userInfo destPath:(NSString *)destPath srcPath:(NSString *)srcPath sizeNow:(long long)sizeNow sizeAll:(long long)sizeAll fileInfo:(NSDictionary *)fileInfo status:(FNDataTransferStatus)status{
@@ -484,10 +547,10 @@
             
             __weak typeof(self) weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/*延迟执行时间*/ * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.progressView setHidden:YES];
                 [weakSelf tableviewEnable:YES];
+                [weakSelf.progressView setHidden:YES];
             });
-            NSString *type = self.type == APKTypeVideo ? VIDEO : IMAGE;
+            NSString *type = [self getLocalVideoType];
             
             NSManagedObjectContext *context = [APKMOCManager sharedInstance].context;
             [context performBlock:^{
@@ -514,34 +577,33 @@
             self.progressView.progressL.text = proressStr;
             self.progressView.hidden = NO;
             self.progressView.center = self.view.center;
-            
             break;
         }
         case DOWNLOAD_STOP: {
             // 檔案下載停止
-            [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"取消下载成功", nil)];
             [self tableviewEnable:YES];
             self.progressView.hidden = YES;
+            [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"取消下载成功", nil)];
             break;
         }
         case DOWNLOAD_FAIL: {
             // 檔案下載失敗
-            [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"下载失败", nil)];
-//            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"下载失败", nil)];
             self.progressView.hidden = YES;
             [self tableviewEnable:YES];
-//            __weak typeof(self) weakSelf = self;
-//            [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"下载失败，是否继续下载", nil)   handler:^(UIAlertAction*action) {
-//
-//                [weakSelf downloadFile];
-//            }];
+            [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"下载失败", nil)];
             break;
         }
+        default:
+            self.progressView.hidden = YES;
+            [self tableviewEnable:YES];
+            break;
     }
 }
 
 - (void)onCameraUnstableAndReconnectSuccess
 {
+    [self tableviewEnable:YES];
+    self.progressView.hidden = YES;
     [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"机器断开重连成功", nil)];
 }
 
@@ -602,18 +664,17 @@
 -(void)shareButtonAction:(NSInteger)tag
 {
     LocalFileInfo *file = self.dataArr[tag];
-    NSString *text = file.name;
     UIImage *previewImage = [UIImage imageWithContentsOfFile:file.url];
     NSArray *activityItems = @[];
     NSURL *URL = [NSURL fileURLWithPath:file.url];
     if (self.type == APKTypeLocalImage)
-        activityItems = @[text, previewImage];
+        activityItems = @[previewImage];
     else
-        activityItems = @[text, URL];
-    
-    UIActivityViewController *avc = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
-//    avc.excludedActivityTypes = @[UIActivityTypeSaveToCameraRoll,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToTwitter,UIActivityTypePostToFacebook];
-    [self presentViewController:avc animated:YES completion:nil];
+        activityItems = @[URL];
+    if (activityItems.firstObject && activityItems.firstObject != nil) {
+        UIActivityViewController *avc = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+        [self presentViewController:avc animated:YES completion:nil];
+    }
 }
 
 #pragma mark - APKProgressViewDelegate

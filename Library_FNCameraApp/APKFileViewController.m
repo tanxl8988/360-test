@@ -32,20 +32,29 @@
     
     self.tabBarItem.title = NSLocalizedString(@"相册", nil);
     
+    APKFileView *fileView = [[NSBundle mainBundle] loadNibNamed:@"APKFileView" owner:nil options:nil].firstObject;
     for (int i = 0; i < 2; i++) {
         
-        APKFileView *fileView = [[NSBundle mainBundle] loadNibNamed:@"APKFileView" owner:nil options:nil].firstObject;
+        fileView = [[NSBundle mainBundle] loadNibNamed:@"APKFileView" owner:nil options:nil].firstObject;
         fileView.frame = CGRectMake(Kwidth * i, 0, Kwidth, CGRectGetHeight(self.scView.frame));
         fileView.delegate = self;
-        fileView.videoButton.tag = i == 0 ? 100 : 102;
-        fileView.imageButton.tag = i == 0 ? 101 : 103;
+        fileView.videoButton.tag = i == 0 ? 100 : 104;
+        fileView.eventButton.tag = i == 0 ? 101 : 105;
+        fileView.parkingButton.tag = i == 0 ? 102 : 106;
+        fileView.imageButton.tag = i == 0 ? 103 : 107;
         [self.scView addSubview:fileView];
+        
+        fileView.videoL.text = NSLocalizedString(@"视频", nil);
+        fileView.eventL.text = NSLocalizedString(@"事件", nil);
+        fileView.parkingL.text = NSLocalizedString(@"停车监控", nil);
+        fileView.imageL.text = NSLocalizedString(@"照片", nil);
     }
     
     [self.segment setTitle:NSLocalizedString(@"摄像机文件", nil) forSegmentAtIndex:0];
     [self.segment setTitle:NSLocalizedString(@"本地文件", nil) forSegmentAtIndex:1];
+    self.segment.selectedSegmentIndex = 0;
 
-     [self.segment addTarget:self action:@selector(changeSeg:) forControlEvents:UIControlEventValueChanged];
+    [self.segment addTarget:self action:@selector(changeSeg:) forControlEvents:UIControlEventValueChanged];
     
     // Do any additional setup after loading the view.
 }
@@ -70,10 +79,22 @@
             [self performSegueWithIdentifier:@"fileSegue" sender:@"video"];
             break;
         case 101:
-            [self performSegueWithIdentifier:@"fileSegue" sender:@"image"];
+            [self performSegueWithIdentifier:@"fileSegue" sender:@"event"];
             break;
         case 102:
+            [self performSegueWithIdentifier:@"fileSegue" sender:@"parking"];
+            break;
+        case 103:
+            [self performSegueWithIdentifier:@"fileSegue" sender:@"image"];
+            break;
+        case 104:
             [self performSegueWithIdentifier:@"fileSegue" sender:@"localVideo"];
+            break;
+        case 105:
+            [self performSegueWithIdentifier:@"fileSegue" sender:@"localEvent"];
+            break;
+        case 106:
+            [self performSegueWithIdentifier:@"fileSegue" sender:@"localParking"];
             break;
         default:
             [self performSegueWithIdentifier:@"fileSegue" sender:@"localImage"];
@@ -110,8 +131,16 @@
         type = APKTypeVideo;
     else if ([sender isEqualToString:@"image"])
         type = APKTypeImage;
+    else if ([sender isEqualToString:@"event"])
+        type = APKTypeEvent;
+    else if ([sender isEqualToString:@"parking"])
+        type = APKTypeParking;
     else if ([sender isEqualToString:@"localVideo"])
         type = APKTypeLocalVideo;
+    else if ([sender isEqualToString:@"localEvent"])
+        type = APKTypeLocalEvent;
+    else if ([sender isEqualToString:@"localParking"])
+        type = APKTypeLocalParking;
     else
         type = APKTypeLocalImage;
         

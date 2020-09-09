@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BO3-g1-hKF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BO3-g1-hKF">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +28,7 @@
                                 </segments>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sc-RW-FpB">
-                                <rect key="frame" x="0.0" y="123" width="375" height="413"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="547"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="TY7-w3-Kt2" id="zY9-Kj-hfB"/>
@@ -37,7 +37,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="album_tabbar_normal" selectedImage="album_tabbar_highlight" id="j2L-v9-fOE"/>
+                    <tabBarItem key="tabBarItem" title="" image="playback-" id="j2L-v9-fOE"/>
                     <connections>
                         <outlet property="scView" destination="2Sc-RW-FpB" id="NXU-yp-4zF"/>
                         <outlet property="segment" destination="PXl-ek-5q9" id="eax-1G-GD7"/>
@@ -221,7 +221,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSO-x1-7UA">
                                 <rect key="frame" x="157" y="303" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Pause"/>
                                 <connections>
                                     <action selector="playBtnCliked:" destination="LIO-ug-fEg" eventType="touchUpInside" id="Q2C-pw-Ozj"/>
@@ -270,7 +270,7 @@
                         <sections>
                             <tableViewSection headerTitle="影片设定" id="CCx-rs-Cjh">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="37" id="YxC-3g-9RR">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="37" id="YxC-3g-9RR">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YxC-3g-9RR" id="seM-OY-MfR">
@@ -723,7 +723,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="相机信息" id="WJj-vW-qD7">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="37" id="reL-4J-EQm">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="37" id="reL-4J-EQm">
                                         <rect key="frame" x="0.0" y="926.5" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="reL-4J-EQm" id="IyL-ld-m9z">
@@ -747,7 +747,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="37" id="BRd-nA-AwK">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="37" id="BRd-nA-AwK">
                                         <rect key="frame" x="0.0" y="963.5" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BRd-nA-AwK" id="zi1-wK-bdt">
@@ -779,7 +779,7 @@
                             <outlet property="delegate" destination="hLI-0q-Plu" id="aH7-5J-dt6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="settings_tabbar_normal" selectedImage="settings_tabbar_highlight" id="YxJ-Bq-uzD"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon setting- " id="YxJ-Bq-uzD"/>
                     <connections>
                         <outlet property="G_sensorCell" destination="42f-mz-TOa" id="PkL-KZ-ekr"/>
                         <outlet property="WiFILabel" destination="JCl-KB-uIz" id="uJH-z6-fcC"/>
@@ -873,14 +873,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IM-li-2kb">
-                                <rect key="frame" x="0.0" y="103" width="375" height="320"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2IM-li-2kb">
+                                <rect key="frame" x="0.0" y="84" width="375" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heq-0a-vs6" colorLabel="IBBuiltInLabel-Yellow">
-                                        <rect key="frame" x="156.5" y="130" width="62.5" height="62.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="heq-0a-vs6" secondAttribute="height" multiplier="1:1" id="h3i-bf-89W"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heq-0a-vs6" colorLabel="IBBuiltInLabel-Yellow">
+                                        <rect key="frame" x="157" y="59" width="62" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="Play"/>
                                         <connections>
                                             <action selector="buttonAction:" destination="5FF-69-hjw" eventType="touchUpInside" id="wkw-Mf-1J1"/>
@@ -888,22 +887,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstItem="heq-0a-vs6" firstAttribute="centerX" secondItem="2IM-li-2kb" secondAttribute="centerX" id="3nH-P7-bRg"/>
-                                    <constraint firstItem="heq-0a-vs6" firstAttribute="centerY" secondItem="2IM-li-2kb" secondAttribute="centerY" constant="1.25" id="77u-Zh-ubh"/>
-                                    <constraint firstAttribute="width" secondItem="2IM-li-2kb" secondAttribute="height" multiplier="16:9" constant="-193.88888888888891" id="cf0-10-Sh6"/>
-                                    <constraint firstItem="heq-0a-vs6" firstAttribute="width" secondItem="2IM-li-2kb" secondAttribute="width" multiplier="1:6" id="kW7-Rl-02l"/>
-                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIh-En-79G">
-                                <rect key="frame" x="125" y="463" width="125" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="椭圆 1 录像"/>
-                                <state key="selected" image="椭圆 1 拍照"/>
-                                <connections>
-                                    <action selector="recordButtonClick:" destination="5FF-69-hjw" eventType="touchUpInside" id="A2X-Cp-RfL"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DQ-Ax-5As">
                                 <rect key="frame" x="46" y="488" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -914,59 +898,89 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O39-xC-0dK">
-                                <rect key="frame" x="12" y="20" width="240" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="9" y="282" width="240" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-gt-xYT">
-                                        <rect key="frame" x="15" y="16" width="59" height="59"/>
+                                        <rect key="frame" x="4" y="9" width="60" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="VR模式"/>
+                                        <state key="normal" backgroundImage="VR模式-"/>
                                         <connections>
                                             <action selector="VRButtonClick:" destination="5FF-69-hjw" eventType="touchUpInside" id="U8K-M0-9Yf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5l-Ia-Oa4">
-                                        <rect key="frame" x="80" y="16" width="59" height="59"/>
+                                        <rect key="frame" x="74" y="9" width="60" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="镜头方向"/>
+                                        <state key="normal" backgroundImage="镜头方向-"/>
                                         <connections>
                                             <action selector="directionButtonClick:" destination="5FF-69-hjw" eventType="touchUpInside" id="G26-kH-ETm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZH6-5i-TXc">
-                                        <rect key="frame" x="142" y="16" width="59" height="59"/>
+                                        <rect key="frame" x="142" y="9" width="60" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="VR控制"/>
+                                        <state key="normal" backgroundImage="VR控制-"/>
                                         <connections>
                                             <action selector="touchButtonClick:" destination="5FF-69-hjw" eventType="touchUpInside" id="Jjr-4j-paA"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihB-Pj-LUx">
-                                <rect key="frame" x="293" y="38" width="59" height="59"/>
+                                <rect key="frame" x="300" y="291" width="60" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="切换画面合成模式"/>
+                                <state key="normal" image="切换画面显示模式"/>
                                 <connections>
                                     <action selector="clickHeightModeButton:" destination="5FF-69-hjw" eventType="touchUpInside" id="N8m-7P-TgW"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-7l-Mam">
+                                <rect key="frame" x="0.0" y="-5" width="375" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="摄像" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6w-z1-Baq">
+                                        <rect key="frame" x="156" y="23" width="63" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="oYn-ci-W8a">
+                                        <rect key="frame" x="226" y="17" width="50" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="w0Y-7O-N4j">
+                                        <rect key="frame" x="97" y="17" width="50" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIh-En-79G">
+                                <rect key="frame" x="0.0" y="447" width="375" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="椭圆 1 录像_"/>
+                                <state key="selected" image="椭圆 1 拍照"/>
+                                <connections>
+                                    <action selector="recordButtonClick:" destination="5FF-69-hjw" eventType="touchUpInside" id="A2X-Cp-RfL"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2IM-li-2kb" firstAttribute="centerX" secondItem="eMY-s7-UbO" secondAttribute="centerX" id="4eF-1b-Ldf"/>
-                            <constraint firstItem="2IM-li-2kb" firstAttribute="top" secondItem="STP-r8-52M" secondAttribute="bottom" constant="103" id="FEP-eA-brE"/>
-                            <constraint firstItem="2IM-li-2kb" firstAttribute="width" secondItem="eMY-s7-UbO" secondAttribute="width" id="wB7-VU-QLj"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="preview_tabbar_normal" selectedImage="preview_tabbar_highlight" id="4Q8-0O-8sa"/>
+                    <tabBarItem key="tabBarItem" title="" image="preview-" selectedImage="preview-" id="4Q8-0O-8sa"/>
                     <connections>
                         <outlet property="actionButtonView" destination="O39-xC-0dK" id="S6R-Xj-o25"/>
+                        <outlet property="changeModelBtn" destination="ihB-Pj-LUx" id="RRK-tr-a7g"/>
                         <outlet property="changeRecordModeButton" destination="0DQ-Ax-5As" id="YDQ-oh-DkS"/>
+                        <outlet property="headView" destination="pJC-7l-Mam" id="T3L-BK-1wO"/>
                         <outlet property="playButton" destination="heq-0a-vs6" id="9qk-57-de8"/>
                         <outlet property="playerView" destination="2IM-li-2kb" id="iBH-O6-bZ4"/>
                         <outlet property="recordButton" destination="gIh-En-79G" id="bWC-v6-wcM"/>
+                        <outlet property="titleL" destination="P6w-z1-Baq" id="riD-57-anD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xW-CR-Z5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -977,18 +991,17 @@
     <resources>
         <image name="Pause" width="50" height="50"/>
         <image name="Play" width="52" height="52"/>
-        <image name="VR控制" width="59" height="59"/>
-        <image name="VR模式" width="59" height="59"/>
-        <image name="album_tabbar_highlight" width="30" height="30"/>
-        <image name="album_tabbar_normal" width="30" height="30"/>
-        <image name="preview_tabbar_highlight" width="30" height="30"/>
-        <image name="preview_tabbar_normal" width="30" height="30"/>
-        <image name="settings_tabbar_highlight" width="30" height="30"/>
-        <image name="settings_tabbar_normal" width="30" height="30"/>
+        <image name="VR控制-" width="80" height="55"/>
+        <image name="VR模式-" width="80" height="55"/>
+        <image name="icon setting- " width="80" height="50"/>
+        <image name="left" width="48.5" height="4"/>
+        <image name="playback-" width="80" height="50"/>
+        <image name="preview-" width="80" height="50"/>
+        <image name="right" width="48.5" height="4"/>
         <image name="切换录像模式" width="75" height="75"/>
-        <image name="切换画面合成模式" width="75" height="75"/>
-        <image name="椭圆 1 录像" width="125" height="125"/>
+        <image name="切换画面显示模式" width="80" height="55"/>
+        <image name="椭圆 1 录像_" width="83.5" height="83.5"/>
         <image name="椭圆 1 拍照" width="125" height="125"/>
-        <image name="镜头方向" width="59" height="59"/>
+        <image name="镜头方向-" width="80" height="55"/>
     </resources>
 </document>

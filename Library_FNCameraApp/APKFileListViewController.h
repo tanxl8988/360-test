@@ -14,7 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 typedef enum : NSUInteger {
     APKTypeVideo,
     APKTypeImage,
+    APKTypeEvent,
+    APKTypeParking,
     APKTypeLocalVideo,
+    APKTypeLocalEvent,
+    APKTypeLocalParking,
     APKTypeLocalImage
 } APKSourceType;
 

@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 #import "APKAlertTool.h"
 #import "APKDVRListen.h"
-
+#import "sys/utsname.h"
 
 #define TOAST_DURATION 1.0
 
@@ -28,7 +28,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeRecordModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (nonatomic,assign) NSInteger connetedNum;
-
+@property (strong,nonatomic) dispatch_source_t heartBeatTimer;
+@property (weak, nonatomic) IBOutlet UILabel *titleL;
+@property (weak, nonatomic) IBOutlet UIButton *changeModelBtn;
+@property (weak, nonatomic) IBOutlet UIView *headView;
+@property (nonatomic,assign) int playFailTime;
 @end
 
 @implementation FNISDKToolViewController {
@@ -64,17 +68,28 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleApplicationState:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
 //    self.actionButtonView.hidden = YES;
+    [self.HUD showAnimated:YES];
     
     for (UIButton *btn in self.actionButtonView.subviews)
         btn.enabled = NO;
-
-    [self.HUD showAnimated:YES];
+    
+    self.titleL.text = NSLocalizedString(@"摄像", nil);
     
     self.tabBarController.viewControllers[0].tabBarItem.title = NSLocalizedString(@"摄像机", nil);
     self.tabBarController.viewControllers[1].tabBarItem.title = NSLocalizedString(@"相册", nil);
     self.tabBarController.viewControllers[2].tabBarItem.title = NSLocalizedString(@"设置", nil);
     
     self.connetedNum = 0;
+        
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.playerView addGestureRecognizer:singleTap];
+    
+    NSString *iphone = [self iphoneType];
+       if ([iphone isEqualToString:@"iPhone X"] || [iphone isEqualToString:@"iPhone XR"] || [iphone isEqualToString:@"iPhone XS"] || [iphone isEqualToString:@"iPhone XS Max"] || [iphone isEqualToString:@"iPhone 11"] || [iphone isEqualToString:@"iPhone 11 Pro"] || [iphone isEqualToString:@"iPhone 11 Pro Max"]) {
+           self.headView.frame = CGRectMake(0, -10, self.view.bounds.size.width, 100);
+    }
+    
     
     // Do any additional setup after loading the view.
 }
@@ -82,6 +97,8 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self updateButtonStatus];
+    _playButton.hidden = NO;
+
     
     if (self.isRecord) {
         [self.remoteCamera startRecord];
@@ -89,7 +106,7 @@
     
     if (self.isConnected) {
         
-        [self.remoteCamera stopRecord];
+        [self.HUD showAnimated:YES];
         
         switch (self.previewMode) {
             case APKDefaultMode:
@@ -134,6 +151,30 @@
     
 }
 
+- (NSString*)iphoneType {
+    
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString*platform = [NSString stringWithCString: systemInfo.machine encoding:NSASCIIStringEncoding];
+
+    if([platform isEqualToString:@"iPhone10,3"]) return @"iPhone X";
+    if([platform isEqualToString:@"iPhone10,6"]) return @"iPhone X";
+    if([platform isEqualToString:@"iPhone11,8"]) return @"iPhone XR";
+    if([platform isEqualToString:@"iPhone11,2"]) return @"iPhone XS";
+    if([platform isEqualToString:@"iPhone11,6"]) return @"iPhone XS Max";
+    if([platform isEqualToString:@"iPhone12,1"]) return @"iPhone 11";
+    if([platform isEqualToString:@"iPhone12,3"]) return @"iPhone 11 Pro";
+    if([platform isEqualToString:@"iPhone12,5"]) return @"iPhone 11 Pro Max";
+
+    return platform;
+}
+
+
+-(void)singleTap
+{
+    NSLog(@"");
+}
+
 - (IBAction)clickHeightModeButton:(UIButton *)sender {
     
     if (!_isConnected) {
@@ -141,7 +182,8 @@
         return;
     }
     
-    NSArray *array = @[NSLocalizedString(@"圆球模式", nil),NSLocalizedString(@"360°VR模式", nil),NSLocalizedString(@"二分割", nil)];
+    self.changeModelBtn.enabled = NO;
+    NSArray *array = @[NSLocalizedString(@"一般模式", nil),NSLocalizedString(@"圆球模式", nil),NSLocalizedString(@"360°VR模式", nil),NSLocalizedString(@"二分割", nil)];
     
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                              message:nil
@@ -151,7 +193,7 @@
             
             //            if (i != 3 && i != 4) [self.HUD showAnimated:YES];
             
-            if (i == 0 || i == 1) {
+            if (i == 1 || i == 2) {
                 for (UIButton *btn in self.actionButtonView.subviews)
                     btn.enabled = YES;
             }else
@@ -163,20 +205,23 @@
             [self.remoteCamera stopRecord];
             APKPreviewMode mode = APKDefaultMode;
             switch (i) {
-                case 0:{
-                    mode = APKBollMode;
-                    //                    self.player.projectionMode = FN360ModeProjectionBallFullSphere;
-                    //                    [self getLivePath];
+                case 0:
+                    mode = APKDefaultMode;
                     [self setSetting:@"video_fisheye_mode" newValue:@"full_dewarp"];
-                    self.directionModeArray = @[@9,@10,@11];}
-                    break;
+                    break;                
                 case 1:
-                    mode = APK360VRMode;
-                    //                    self.player.projectionMode = FN360ModeProjectionSphere;
+                    mode = APKBollMode;
+  
                     [self setSetting:@"video_fisheye_mode" newValue:@"full_dewarp"];
-                    self.directionModeArray = @[@1,@2,@3];
+                    self.directionModeArray = @[@9,@10,@11];
                     break;
                 case 2:
+                    mode = APK360VRMode;
+                           //                    self.player.projectionMode = FN360ModeProjectionSphere;
+                   [self setSetting:@"video_fisheye_mode" newValue:@"full_dewarp"];
+                   self.directionModeArray = @[@1,@2,@3];
+                   break;
+                default:
                     mode = APK2in1Mode;
                     [self setSetting:@"video_fisheye_mode" newValue:@"2in1"];
                     break;
@@ -187,7 +232,9 @@
         [alert addAction:action];
     }
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        self.changeModelBtn.enabled = YES;
+    }];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
     
@@ -210,7 +257,7 @@
                 for (UIButton *btn in self.actionButtonView.subviews)
                     btn.enabled = NO;
             }
- 
+            
             APKPreviewMode mode;
             switch (i) {
                 case 0:
@@ -364,8 +411,12 @@
 
 - (IBAction)recordButtonClick:(UIButton *)sender {
     
+    if (!self.isConnected) {
+        [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
+        return;
+    }
+    
     __weak typeof (self) weakself = self;
-
     NSDictionary *response = @{};
     if (self.isRecordMode){
         
@@ -373,12 +424,12 @@
         if ([recordResponse[@"param"] isEqualToString:@"idle"]){
             response = [self.remoteCamera startRecord];
             self.isRecord = YES;
-            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"开始录像", nil)];
+            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"录像开启", nil)];
         }
         else{
             response = [self.remoteCamera stopRecord];
             self.isRecord = NO;
-            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"关闭录像", nil)];
+            [APKAlertTool showAlertInView:self.view andText:NSLocalizedString(@"录像关闭", nil)];
         }
     }else
     {
@@ -413,6 +464,7 @@
 - (void) updateButtonStatus {
     [_playButton setHidden:(_player != nil)];    //hide when player is init
 }
+
 
 #pragma mark property
 - (FNRemoteCamera *)remoteCamera {
@@ -453,12 +505,12 @@
                         weakSelf.IP = gatewayIp;
                         weakSelf.SSID = [self.remoteCamera getSetting:@"wifi_ssid"][@"param"];
                         weakSelf.password = [self.remoteCamera getSetting:@"wifi_password"][@"param"];
-
                         NSDictionary *dic = [weakSelf.remoteCamera getSetting:@"card_status"];
                         weakSelf.isRecord = [dic[@"param"] isEqualToString:@"inserted"] ? YES : NO;
                         weakSelf.connetedNum = 0;
                         
                         [weakSelf.remoteCamera setSetting:@"camera_clock" param:[weakSelf currentTime]];
+                        [weakSelf sendHeartBeat];
                     });
                     
                     break;
@@ -479,6 +531,37 @@
             [weakSelf stopPlayLiveStream];
             [APKAlertTool showAlertInViewController:weakSelf message:NSLocalizedString(@"请确认Wi-Fi是否已连接", nil)];
         });
+    }
+}
+
+
+static int heartBeatFailCount;
+-(void)sendHeartBeat
+{
+    heartBeatFailCount = 0;
+    __weak typeof(self) weakSelf = self;
+            
+    if (_heartBeatTimer == nil) {
+        
+        //5秒定时器发送心跳包
+        _heartBeatTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        dispatch_source_set_timer(_heartBeatTimer, DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC, 2 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(_heartBeatTimer, ^{
+            
+            NSDictionary *dic = [weakSelf.remoteCamera getSetting:@"status"];
+               if ([dic[KEY_ERROR_CODE] integerValue] != 0) {
+                   heartBeatFailCount++;
+               }
+              if (heartBeatFailCount > 2) {
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      weakSelf.isConnected = NO;
+                      [weakSelf setDisconnected];
+                      dispatch_suspend(self.heartBeatTimer);
+                      [APKAlertTool showAlertInViewController:weakSelf title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:nil];
+                  });
+              }
+        });
+        dispatch_resume(self.heartBeatTimer);
     }
 }
 
@@ -515,11 +598,11 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
     
-        NSString *changeRecordModeButtonImage = weakself.isRecordMode ? @"切换录像模式" : @"切换录像模式2";
-        NSString *recordButtonImage = weakself.isRecordMode ? @"椭圆 1 录像" : @"椭圆 1 拍照";
-        [weakself.changeRecordModeButton setImage:[UIImage imageNamed:changeRecordModeButtonImage] forState:UIControlStateNormal];
-        [weakself.recordButton setImage:[UIImage imageNamed:recordButtonImage] forState:UIControlStateNormal];
-        [weakself performSelectorInBackground:@selector(getLivePath) withObject:nil];
+//        NSString *changeRecordModeButtonImage = weakself.isRecordMode ? @"切换录像模式" : @"切换录像模式2";
+//        NSString *recordButtonImage = weakself.isRecordMode ? @"椭圆 1 录像" : @"椭圆 1 拍照";
+//        [weakself.changeRecordModeButton setImage:[UIImage imageNamed:changeRecordModeButtonImage] forState:UIControlStateNormal];
+//        [weakself.recordButton setImage:[UIImage imageNamed:recordButtonImage] forState:UIControlStateNormal];
+//        [weakself performSelectorInBackground:@selector(getLivePath) withObject:nil];
     });
 }
 
@@ -571,8 +654,7 @@
 }
 
 
-#pragma mark FNListenerDelegate
-- (void)onDisconnected {
+- (void)setDisconnected {
     
     self.isConnected = NO;
     [self clearInfo];
@@ -623,7 +705,7 @@
     FNPlayerOption *option = [FNPlayerOption defaultVROption];
     option.liveRTSPStreaming = YES;
     _player = [FNPlayerController launchAsVideoPath:path options:option];
-    [_player setEnableVideoController:YES];
+    [_player setEnableVideoController:NO];
 //    [_player setProjectionMode:FN360ModeProjectionPlaneCrop];
     [_player setDisplayMode:FN360ModeDisplayNormal];
     [_playerView insertSubview:_player.view atIndex:0];
@@ -631,8 +713,9 @@
     [_player.view setFrame:_playerView.bounds];
     [_player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionNew context:nil];
     [self updateButtonStatus];
-    [self.HUD hideAnimated:YES];
+    self.playButton.hidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playOnError) name:FNPlayerFailedToPlayToEndTimeErrorKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playIsReady) name:FNPlayerPlayerPreparedNotification object:nil];
 
     __weak typeof(self) weakSelf = self;
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC));
@@ -666,11 +749,24 @@
     }
 }
 
+-(void)playIsReady
+{
+    [self.HUD hideAnimated:YES];
+    self.changeModelBtn.enabled = YES;
+    self.playFailTime = 0;
+}
+
 -(void)playOnError
 {
+    self.playFailTime++;
+    if (self.playFailTime > 3) {
+        [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"播放失败", nil)];
+        return;
+    }
     [self stopPlayLiveStream];
     NSDictionary *response = [self.remoteCamera getLivePath];
     NSString *path = response[KEY_PARAMETER];
+    self.changeModelBtn.enabled = YES;
     [self playVideoPath:path];
 }
 

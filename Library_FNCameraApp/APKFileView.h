@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *videoL;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @property (weak, nonatomic) IBOutlet UILabel *imageL;
+@property (weak, nonatomic) IBOutlet UIButton *eventButton;
+@property (weak, nonatomic) IBOutlet UILabel *eventL;
+@property (weak, nonatomic) IBOutlet UIButton *parkingButton;
+@property (weak, nonatomic) IBOutlet UILabel *parkingL;
+
 @property (weak,nonatomic) id<APKFlodersViewDelegate> delegate;
 @end
 

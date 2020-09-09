@@ -38,6 +38,8 @@
 
     switch (self.type) {
         case APKTypeLocalVideo:
+        case APKTypeLocalEvent:
+        case APKTypeLocalParking:
         case APKTypeVideo:
         {
             [self playVideo];
@@ -194,7 +196,7 @@
 -(void)clickChangeButton
 {
     __weak typeof(self) weakSelf = self;
-    NSArray *array = @[NSLocalizedString(@"圆球模式", nil),NSLocalizedString(@"360°VR模式", nil),NSLocalizedString(@"默认", nil)];
+    NSArray *array = @[NSLocalizedString(@"圆球模式", nil),NSLocalizedString(@"360°VR模式", nil),NSLocalizedString(@"一般模式", nil)];
     
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                    message:nil

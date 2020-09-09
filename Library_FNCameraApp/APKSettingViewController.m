@@ -73,13 +73,9 @@
         UILabel *l = self.namesL[i];
         l.text = self.nameArr[i];
     }
-    __weak typeof (self) weakself = self;
-
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"WIFIISCLOSE" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        weakself.isConnected = NO;
-    }];
- 
     
+    self.WiFILabel.text = NSLocalizedString(@"Wi-Fi设定", nil);
+ 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -91,7 +87,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+        
     FNISDKToolViewController *previewVC = self.tabBarController.viewControllers.firstObject;
     self.remoteCamera = previewVC.remoteCamera;
     self.cameraVersionL.text = previewVC.cameraVersion;
@@ -179,8 +175,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __weak typeof (self) weakself = self;
-    
-    if (!self.isConnected) {
+
+    if ([self getConnectedState] != YES) {
         [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
         return;
     }
@@ -227,23 +223,23 @@
             }];
         }else if(cell == self.WiFiSetCell){
             
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"WIFI设置"
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"WIFI设置", nil)
                                                                              message:nil
                                                                       preferredStyle:UIAlertControllerStyleAlert];
             __block int i = 0;
 
-              UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+              UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault
                                                                     handler:^(UIAlertAction * action) {
                                                                         //响应事件
                   NSString *ssidStr = alert.textFields[1].text;
-                  if (ssidStr.length == 0) {
-                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置失败，SSID不得为空", nil)];
+                  if (ssidStr.length < 1 || ssidStr.length > 16) {
+                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"Wi-Fi名称必须为1-16个非空字符", nil)];
                       return;
                   }
                   
                   NSString *passWordStr = alert.textFields[1].text;
-                  if (passWordStr.length < 8) {
-                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"设置失败，密码不得小于8位", nil)];
+                  if (passWordStr.length < 8 || passWordStr.length > 16 ) {
+                      [APKAlertTool showAlertInViewController:weakself message:NSLocalizedString(@"Wi-Fi密码必须为8-16个非空字符", nil)];
                       return;
                   }
                 for(UITextField *text in alert.textFields){
@@ -262,20 +258,17 @@
                     i++;
                 }
             }];
-              UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+            UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel
                                                                    handler:^(UIAlertAction * action) {
                                                                        //响应事件
                                                                        NSLog(@"action = %@", alert.textFields);
                                                                    }];
-            FNISDKToolViewController *previewVC = self.tabBarController.viewControllers.firstObject;
-            __block NSString *ssid = previewVC.SSID;
-            __block NSString *password = previewVC.password;
               [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                  textField.text = ssid;
+                  textField.placeholder = NSLocalizedString(@"Wi-Fi名称必须为1-16个非空字符", nil);
                   textField.keyboardType = UIKeyboardTypeASCIICapable;
               }];
               [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                  textField.text = password;
+                  textField.placeholder = NSLocalizedString(@"Wi-Fi密码必须为8-16个非空字符", nil);
                   textField.keyboardType = UIKeyboardTypeNumberPad;
 
 //                  textField.secureTextEntry = YES;
@@ -303,6 +296,12 @@
     }];
 }
 
+-(BOOL)getConnectedState
+{
+    FNISDKToolViewController *previewVC = self.tabBarController.viewControllers.firstObject;
+    return previewVC.isConnected;
+}
+
 - (NSString *)currentTime{
     
     //获取手机当前时间
@@ -319,7 +318,9 @@
 {
     __weak typeof(self) weakSelf = self;
     
-    if (!self.isRecord || self.isRecord == NO) {
+    
+    NSDictionary *dic = [self.remoteCamera getSetting:@"status"];
+    if (![dic[@"param"] isEqualToString:@"record"]) {
         recordState(YES);
         return;
     }
@@ -372,7 +373,7 @@
 
 - (IBAction)clickSwitchActions:(UISwitch *)sender {
     
-    if (!self.isConnected) {
+    if ([self getConnectedState] != YES) {
         [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:^(UIAlertAction *action) {
             sender.on = !sender.isOn;
         }];
