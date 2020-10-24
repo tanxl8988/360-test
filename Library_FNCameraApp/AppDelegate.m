@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [FNRemoteCamera setIdentifier:@"kes3z7f3raq1k9gfk5ub64hd5a26cf65"];
+    [FNRemoteCamera setIdentifier:@"zcz8k4mdu75auc75l480j2zdtau4t9b6"];
     [[APKMOCManager sharedInstance] setupCoreDataStack];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     return YES;

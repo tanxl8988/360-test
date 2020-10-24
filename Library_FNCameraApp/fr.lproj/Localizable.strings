@@ -1,99 +1,107 @@
 /*
- Localizable.strings
- Library_FNCameraApp
- 
- Created by apical on 2019/9/24.
- Copyright © 2019年 Choco Yang. All rights reserved.
- */
+  Localizable.strings
+  Library_FNCameraApp
+
+  Created by apical on 2019/9/24.
+  Copyright © 2019年 Choco Yang. All rights reserved.
+*/
 
 //preview
-"圆球模式" = "Mode sphérique";
-"360°VR模式" = "Modèle de 360°VR";
-"二分割" = "didivision";
-"往上" = "Partant de la base";
-"往下" = "La descente";
-"往前" = "Plus loin";
-"触控" = "tactiles";
-"动作" = "action";
-"触控+动作" = "Tactile + action";
-"连接失败" = "Défaut de connexion";
-"操作失败" = "Échec de l’exploitation";
-"确定" = "déterminer";
-"摄像机" = "caméras";
-"相册" = "l’album";
-"设置" = "La mise en place";
-"开始录像" = "Début de la vidéo";
-"关闭录像" = "Arrêt de la vidéo";
-"请确认Wi-Fi是否已连接" = "Veuillez confirmer que le wifi est connecté";
-
-
+"圆球模式" = "Mode orbe";
+"360°VR模式" = "Mode VR à 360 °";
+"二分割" = "Deux split";
+"往上" = "Vers le haut";
+"往下" = "Vers le bas";
+"往前" = "Vers l'avant";
+"触控" = "Toucher";
+"动作" = "Action";
+"触控+动作" = "Toucher + action";
+"连接失败" = "La connexion a échoué";
+"操作失败" = "L'opération a échoué";
+"确定" = "Déterminer";
+"摄像机" = "Caméra vidéo";
+"相册" = "Album photo";
+"设置" = "Installer";
+"一般模式" = "Mode général";
 
 //file
-"DVR视频" = "DVR video";
-"DVR图片" = "Image DVR";
+"DVR视频" = "Vidéo DVR";
+"DVR图片" = "Images DVR";
 "本地视频" = "Vidéo locale";
-"本地图片" = "Images locales";
-"已下载" = "téléchargé";
-"下载" = "Le téléchargement";
-"取消下载成功" = "Annulation d’un téléchargement réussi";
-"下载失败" = "Défaut de téléchargement";
-"删除失败" = "Défaut de suppression";
-"视频" = "La vidéo";
-"照片" = "photo";
-"摄像机文件" = "Fichiers vidéo";
-"本地文件" = "Documents locaux";
-"请关闭录像" = "Veuillez fermer la vidéo";
-"没有获取到数据，是否继续获取?" = "Aucune donnée n’a été obtenue; est-ce que les données continuent à être obtenues?";
+"本地图片" = "Image locale";
+"已下载" = "Téléchargé";
+"下载" = "Télécharger";
+"取消下载成功" = "Annuler le téléchargement avec succès";
+"下载失败" = "Échec du téléchargement";
+"删除失败" = "Échec de la suppression";
+"视频" = "Vidéo";
+"照片" = "Photo";
+"事件" = "Incident";
+"停车监控" = "Surveillance du stationnement";
+
+"摄像机文件" = "Fichier caméra";
+"本地文件" = "Fichiers locaux";
 
 
 //set
-"Wi-Fi未连接" = "Wi-fi non connecté";
-"确定要格式化吗" = "Vous êtes sûr que vous voulez le formatage";
-"格式化成功" = "Formatage réussi";
-"格式化失败" = "Défaut de formatage";
-"设置成功" = "Mise en place réussie";
-"设置失败" = "Défaut de mise en place";
-"确定要恢复出厂设置吗" = "Est-il sûr qu’il faut rétablir la configuration départ usine？";
-"恢复出厂设置成功" = "Retour à la position départ usine avec succès";
-"恢复出厂设置失败" = "La restauration des conditions d’usine a échoué";
-"取消" = "La suppression des";
-"关闭" = "La fermeture";
-"一般" = "En général,";
-"热点" = "Les points chauds";
-"1 分钟" = "1 min";
-"3 分钟" = "3 min";
-"5 分钟" = "5 min";
-"校准时间成功" = "Temps d’étalonnage réussi";
-"校准时间失败" = "Défaut d’étalonnage";
-"执行此操作需停止录像?" = "Pour effectuer cette opération, il faut arrêter la vidéo?";
-"录像已停止" = "La vidéo a été arrêtée";
-"机器断开重连成功" = "La machine est déconnectée et réconnectée avec succès";
-"确定删除该文件吗" = "Est-il sûr que le fichier a été supprimé";
-"删除失败" = "Défaut de suppression";
+"Wi-Fi未连接" = "Wi-Fi non connecté";
+"确定要格式化吗" = "Êtes-vous sûr de vouloir formater";
+"设置成功" = "Définir avec succès";
+"设置失败" = "La configuration a échoué";
+"确定要恢复出厂设置吗" = "Êtes-vous sûr de vouloir restaurer les paramètres d'usine";
+"取消" = "Annuler";
+"关闭" = "Fermer";
+"一般" = "Général";
+"热点" = "Point chaud";
+"1 分钟" = "1 minute";
+"3 分钟" = "3 minutes";
+"5 分钟" = "5 minutes";
 
 "视频分辨率" = "Résolution vidéo";
-"视频戳记" = "Cachet vidéo";
-"录像曝光补偿" = "Compensation de l’exposition vidéo";
-"循环录像周期" = "Cycle vidéo";
-"录像宽动态" = "ビデオワイド";
-"移动侦测" = "Détection des mouvements";
-"自动录像" = "Enregistrement vidéo automatique";
-"校准时间" = "Temps d’étalonnage";
-"重力感应" = "Induction gravimétrique";
-"录像设定" = "Montage vidéo";
-"屏幕保护" = "Protecteurs d’écran";
-"光源频率" = "Fréquence de la source lumineuse";
-"按键音设定" = "Réglage du ton des touches";
-"相机语言" = "Langage de la caméra";
-"定时关机" = "Arrêt programmé";
-"格式化存储卡" = "Carte mémoire formatée";
-"恢复出厂设置" = "Rétablissement du réglage départ usine";
-"Wi-Fi模式" = "Mode wi-fi";
-"相机剩余空间" = "Espace résiduel de la caméra";
-"相机软件版本" = "Version du logiciel de caméra";
-"暂无文件" = "Pas de documents";
-"切换" = "commutation";
+"视频戳记" = "Timbre vidéo";
+"录像曝光补偿" = "Compensation d'exposition vidéo";
+"循环录像周期" = "Période d'enregistrement en boucle";
+"录像宽动态" = "Vidéo large dynamique";
+"移动侦测" = "Détection de mouvement";
+"自动录像" = "Enregistrement automatique";
+"校准时间" = "Temps d'étalonnage";
+"重力感应" = "Détecteur de gravité";
+"录像设定" = "Paramètres vidéo";
+"屏幕保护" = "Protecteur d'écran";
+"光源频率" = "Fréquence source";
+"按键音设定" = "Réglage du son des boutons";
+"相机语言" = "Langue des caméras";
+"定时关机" = "Minuterie d'arrêt";
+"格式化存储卡" = "Formater la carte mémoire";
+"恢复出厂设置" = "Réinitialiser";
+"Wi-Fi模式" = "Mode Wi-Fi";
+"相机剩余空间" = "Espace libre de la caméra";
+"相机软件版本" = "Version du logiciel de l'appareil photo";
+"Wi-Fi名称必须为1-16个非空字符" = "Le nom Wi-Fi doit comporter entre 1 et 16 caractères non vides";
+"Wi-Fi密码必须为8-16个非空字符" = "Le mot de passe Wi-Fi doit contenir entre 8 et 16 caractères non vides";
 
-"返回" = "Le retour";
-"分享" = "Le partage";
-"删除" = "supprimé";
+"摄像" = "Caméra";
+"返回" = "Revenir";
+"没有获取到数据，是否继续获取?" = "Aucune donnée n'est obtenue. Voulez-vous continuer à l'obtenir?";
+"删除" = "Effacer";
+"分享" = "Partagez-le";
+"暂无文件" = "Aucun fichier";
+"执行此操作需停止录像?" = "Besoin d'arrêter l'enregistrement pour effectuer cette opération?";
+"录像已停止" = "L'enregistrement s'est arrêté";
+"确定删除该文件吗" = "Êtes-vous sûr de vouloir supprimer ce fichier";
+"校准时间成功" = "Le temps d'étalonnage a réussi";
+"校准时间失败" = "Le temps d'étalonnage a échoué";
+"格式化成功" = "Formaté avec succès";
+"格式化失败" = "Échec du format";
+"Wi-Fi设定" = "Paramètres Wifi";
+"WIFI设置" = "Paramètres Wifi";
+"设置成功,重启机器之后生效" = "Le réglage est réussi, il prendra effet après le redémarrage de la machine";
+"请确认Wi-Fi是否已连接" = "Veuillez confirmer si le Wi-Fi est connecté";
+"录像开启" = "Vidéo sur";
+"录像关闭" = "Vidéo désactivée";
+
+"恢复出厂设置成功" = "Réinitialisation d'usine réussie";
+"恢复出厂设置失败" = "Réinitialisation d'usine réussie";
+"播放失败" = "La lecture a échoué";
+
+"未插入SD卡" = "Carte SD non insérée";

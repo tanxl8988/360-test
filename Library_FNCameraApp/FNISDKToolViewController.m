@@ -510,7 +510,7 @@
                         weakSelf.connetedNum = 0;
                         
                         [weakSelf.remoteCamera setSetting:@"camera_clock" param:[weakSelf currentTime]];
-                        [weakSelf sendHeartBeat];
+//                        [weakSelf sendHeartBeat];
                     });
                     
                     break;
@@ -555,9 +555,9 @@ static int heartBeatFailCount;
               if (heartBeatFailCount > 2) {
                   dispatch_async(dispatch_get_main_queue(), ^{
                       weakSelf.isConnected = NO;
-                      [weakSelf setDisconnected];
+//                      [weakSelf setDisconnected];
                       dispatch_suspend(self.heartBeatTimer);
-                      [APKAlertTool showAlertInViewController:weakSelf title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:nil];
+                      [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
                   });
               }
         });
@@ -654,16 +654,15 @@ static int heartBeatFailCount;
 }
 
 
-- (void)setDisconnected {
+#pragma mark FNListenerDelegate
+- (void)onDisconnected {
     
     self.isConnected = NO;
     [self clearInfo];
     [self stopPlayLiveStream];
     [self showToastMessage:@"onDisconnected"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WIFIISCLOSE" object:nil];
-    [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:^(UIAlertAction *action) {
-        nil;
-    }];
+    [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
     
 }
 
@@ -808,7 +807,12 @@ static int heartBeatFailCount;
 
     if ([response[KEY_ERROR_CODE] integerValue] != 0) {
         //        [self showToastMessage:NSLocalizedString(@"设置失败", nil)];
-        NSString *alertStr = [response[KEY_ERROR_CODE] integerValue] == -30 ? NSLocalizedString(@"", nil) : NSLocalizedString(@"操作失败", nil);
+        NSString *alertStr = @"";
+        if ([response[KEY_ERROR_CODE] integerValue] == -15) {
+            alertStr = NSLocalizedString(@"未插入SD卡", nil);
+        }else{
+            alertStr = [response[KEY_ERROR_CODE] integerValue] == -30 ? NSLocalizedString(@"", nil) : NSLocalizedString(@"操作失败", nil);
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [APKAlertTool showAlertInView:weakself.view andText:alertStr];
             if([response[@"type"] isEqualToString:@"video_fisheye_mode"]) {

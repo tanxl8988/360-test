@@ -107,9 +107,7 @@
 - (void)disconnected
 {
     __weak typeof(self) weakSelf = self;
-     [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) cancelHandler:^(UIAlertAction *action) {
-        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-    }];
+    [APKAlertTool showAlertInViewController:weakSelf message:NSLocalizedString(@"Wi-Fi未连接", nil)];
 }
 
 -(void)refreshPage

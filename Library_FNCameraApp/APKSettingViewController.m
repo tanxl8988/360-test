@@ -374,9 +374,7 @@
 - (IBAction)clickSwitchActions:(UISwitch *)sender {
     
     if ([self getConnectedState] != YES) {
-        [APKAlertTool showAlertInViewController:self title:nil message:NSLocalizedString(@"Wi-Fi未连接", nil) handler:^(UIAlertAction *action) {
-            sender.on = !sender.isOn;
-        }];
+        [APKAlertTool showAlertInViewController:self message:NSLocalizedString(@"Wi-Fi未连接", nil)];
         return;
     }
     

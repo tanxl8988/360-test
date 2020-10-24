@@ -103,3 +103,5 @@
 "恢复出厂设置成功" = "Factory reset success";
 "恢复出厂设置失败" = "Factory reset failure";
 "播放失败" = "Play failed";
+
+"未插入SD卡" = "NO SD Card";
