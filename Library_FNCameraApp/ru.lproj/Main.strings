@@ -1,0 +1,120 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0gJ-1C-H3z"; */
+"0gJ-1C-H3z.text" = "Label";
+
+/* Class = "UILabel"; text = "按键音设定"; ObjectID = "4Eg-Fk-CXU"; */
+"4Eg-Fk-CXU.text" = "按键音设定";
+
+/* Class = "UIButton"; normalTitle = "删除"; ObjectID = "84p-y4-XAs"; */
+"84p-y4-XAs.normalTitle" = "删除";
+
+/* Class = "UITableViewSection"; headerTitle = "影片设定"; ObjectID = "CCx-rs-Cjh"; */
+"CCx-rs-Cjh.headerTitle" = "影片设定";
+
+/* Class = "UINavigationItem"; title = "图片"; ObjectID = "Dbd-DG-eQK"; */
+"Dbd-DG-eQK.title" = "图片";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Djh-rn-QOi"; */
+"Djh-rn-QOi.text" = "Label";
+
+/* Class = "UITableViewSection"; headerTitle = "系统设定"; ObjectID = "EVh-pR-8y2"; */
+"EVh-pR-8y2.headerTitle" = "系统设定";
+
+/* Class = "UILabel"; text = "Wi-Fi设定"; ObjectID = "JCl-KB-uIz"; */
+"JCl-KB-uIz.text" = "Wi-Fi设定";
+
+/* Class = "UIBarButtonItem"; title = "返回"; ObjectID = "Jzl-Ul-lHZ"; */
+"Jzl-Ul-lHZ.title" = "返回";
+
+/* Class = "UILabel"; text = "录像曝光补偿"; ObjectID = "Kfs-vW-JPM"; */
+"Kfs-vW-JPM.text" = "录像曝光补偿";
+
+/* Class = "UILabel"; text = "循环录像周期"; ObjectID = "LMs-pM-hoh"; */
+"LMs-pM-hoh.text" = "循环录像周期";
+
+/* Class = "UIButton"; normalTitle = "删除"; ObjectID = "LNy-0E-5XE"; */
+"LNy-0E-5XE.normalTitle" = "删除";
+
+/* Class = "UILabel"; text = "视频分辨率"; ObjectID = "Nu2-ta-xQp"; */
+"Nu2-ta-xQp.text" = "视频分辨率";
+
+/* Class = "UILabel"; text = "格式化存储卡"; ObjectID = "OGU-VU-nOX"; */
+"OGU-VU-nOX.text" = "格式化存储卡";
+
+/* Class = "UILabel"; text = "摄像"; ObjectID = "P6w-z1-Baq"; */
+"P6w-z1-Baq.text" = "摄像";
+
+/* Class = "UILabel"; text = "视频戳记"; ObjectID = "P8k-mT-OrP"; */
+"P8k-mT-OrP.text" = "视频戳记";
+
+/* Class = "UISegmentedControl"; PXl-ek-5q9.segmentTitles[0] = "摄像机文件"; ObjectID = "PXl-ek-5q9"; */
+"PXl-ek-5q9.segmentTitles[0]" = "摄像机文件";
+
+/* Class = "UISegmentedControl"; PXl-ek-5q9.segmentTitles[1] = "本地文件"; ObjectID = "PXl-ek-5q9"; */
+"PXl-ek-5q9.segmentTitles[1]" = "本地文件";
+
+/* Class = "UIButton"; normalTitle = "下载"; ObjectID = "Phe-Fq-NdQ"; */
+"Phe-Fq-NdQ.normalTitle" = "下载";
+
+/* Class = "UILabel"; text = "光源频率"; ObjectID = "S0d-TA-UTS"; */
+"S0d-TA-UTS.text" = "光源频率";
+
+/* Class = "UILabel"; text = "录音设定"; ObjectID = "U8r-CB-gSd"; */
+"U8r-CB-gSd.text" = "录音设定";
+
+/* Class = "UILabel"; text = "Wi-Fi模式"; ObjectID = "UHU-I7-Y8b"; */
+"UHU-I7-Y8b.text" = "Wi-Fi模式";
+
+/* Class = "UITableViewSection"; headerTitle = "相机信息"; ObjectID = "WJj-vW-qD7"; */
+"WJj-vW-qD7.headerTitle" = "相机信息";
+
+/* Class = "UILabel"; text = "相机语言"; ObjectID = "WWn-1o-jxv"; */
+"WWn-1o-jxv.text" = "相机语言";
+
+/* Class = "UILabel"; text = "1234"; ObjectID = "WXU-RX-D7y"; */
+"WXU-RX-D7y.text" = "1234";
+
+/* Class = "UIButton"; normalTitle = "分享"; ObjectID = "X5S-Mp-aNc"; */
+"X5S-Mp-aNc.normalTitle" = "分享";
+
+/* Class = "UILabel"; text = "重力感应"; ObjectID = "agh-sn-hBc"; */
+"agh-sn-hBc.text" = "重力感应";
+
+/* Class = "UILabel"; text = "校准时间"; ObjectID = "cSQ-n1-kGl"; */
+"cSQ-n1-kGl.text" = "校准时间";
+
+/* Class = "UILabel"; text = "相机剩余空间"; ObjectID = "chX-O8-hGg"; */
+"chX-O8-hGg.text" = "相机剩余空间";
+
+/* Class = "UILabel"; text = "恢复出厂设置"; ObjectID = "dgU-lf-9v8"; */
+"dgU-lf-9v8.text" = "恢复出厂设置";
+
+/* Class = "UILabel"; text = "1234"; ObjectID = "ghl-BW-dHT"; */
+"ghl-BW-dHT.text" = "1234";
+
+/* Class = "UILabel"; text = "移动侦测"; ObjectID = "j3Y-9J-Lb2"; */
+"j3Y-9J-Lb2.text" = "移动侦测";
+
+/* Class = "UILabel"; text = "屏幕保护"; ObjectID = "meU-ie-9Y2"; */
+"meU-ie-9Y2.text" = "屏幕保护";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nsT-DT-Tw4"; */
+"nsT-DT-Tw4.text" = "Label";
+
+/* Class = "UILabel"; text = "定时关机"; ObjectID = "pC0-wr-Clb"; */
+"pC0-wr-Clb.text" = "定时关机";
+
+/* Class = "UILabel"; text = "录像宽动态"; ObjectID = "r5R-gX-6cp"; */
+"r5R-gX-6cp.text" = "录像宽动态";
+
+/* Class = "UILabel"; text = "相机软件版本"; ObjectID = "rEg-Pv-DSz"; */
+"rEg-Pv-DSz.text" = "相机软件版本";
+
+/* Class = "UITableViewSection"; headerTitle = "其他设定"; ObjectID = "rM5-3b-ljG"; */
+"rM5-3b-ljG.headerTitle" = "其他设定";
+
+/* Class = "UILabel"; text = "自动录像"; ObjectID = "sJY-hu-ttm"; */
+"sJY-hu-ttm.text" = "自动录像";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vgs-3l-ydX"; */
+"vgs-3l-ydX.text" = "Label";

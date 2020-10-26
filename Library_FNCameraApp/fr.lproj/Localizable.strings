@@ -7,12 +7,12 @@
 */
 
 //preview
-"圆球模式" = "Mode orbe";
-"360°VR模式" = "Mode VR à 360 °";
-"二分割" = "Deux split";
-"往上" = "Vers le haut";
-"往下" = "Vers le bas";
-"往前" = "Vers l'avant";
+"圆球模式" = "Mode ballon rond";
+"360°VR模式" = "Mode 360°VR";
+"二分割" = "double segmentation";
+"往上" = "Lève-toi";
+"往下" = "Descends";
+"往前" = "Allez-y";
 "触控" = "Toucher";
 "动作" = "Action";
 "触控+动作" = "Toucher + action";

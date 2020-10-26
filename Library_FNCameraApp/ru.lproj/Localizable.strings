@@ -1,0 +1,107 @@
+/* 
+  Localizable.strings
+  Library_FNCameraApp
+
+  Created by apical on 2019/9/24.
+  Copyright © 2019年 Choco Yang. All rights reserved.
+*/
+
+//preview
+"圆球模式" = "Ball Mode";
+"360°VR模式" = "360°VR Mode";
+"二分割" = "2 in 1";
+"往上" = "up";
+"往下" = "down";
+"往前" = "format";
+"触控" = "touch";
+"动作" = "action";
+"触控+动作" = "touch + action";
+"连接失败" = "The connection fails";
+"操作失败" = "The operation fails";
+"确定" = "OK";
+"摄像机" = "Camera";
+"相册" = "Gallery";
+"设置" = "Setting";
+"一般模式" = "General Model";
+
+//file
+"DVR视频" = "DVR Video";
+"DVR图片" = "DVR Picture";
+"本地视频" = "Local Video";
+"本地图片" = "Local Picture";
+"已下载" = "Downloaded";
+"下载" = "Download";
+"取消下载成功" = "Cancel download success";
+"下载失败" = "Download failed";
+"删除失败" = "Delete failed";
+"视频" = "Normal";
+"照片" = "Snapshot";
+"事件" = "Event";
+"停车监控" = "Parking";
+
+"摄像机文件" = "DVR File";
+"本地文件" = "Local File";
+
+
+//set
+"Wi-Fi未连接" = "WIFI Not Connected";
+"确定要格式化吗" = "Format SD Card?";
+"设置成功" = "Setting changed";
+"设置失败" = "Failed to change the setting";
+"确定要恢复出厂设置吗" = "Reset to Factory Defaults?";
+"取消" = "Cancel";
+"关闭" = "off";
+"一般" = "normal";
+"热点" = "hotspot";
+"1 分钟" = "1 min";
+"3 分钟" = "3 min";
+"5 分钟" = "5 min";
+
+"视频分辨率" = "Resolution";
+"视频戳记" = "Time Stamp";
+"录像曝光补偿" = "Exposure Value";
+"循环录像周期" = "Loop Recording";
+"录像宽动态" = "width Dynamic";
+"移动侦测" = "Parking Mode";
+"自动录像" = "Auto Record";
+"校准时间" = "Loop Recording";
+"重力感应" = "G-Sensor";
+"录像设定" = "Video Setting";
+"屏幕保护" = "LCD Setting";
+"光源频率" = "Light Source Frequency";
+"按键音设定" = "Keytone Setting";
+"相机语言" = "language";
+"定时关机" = "Timing Shutdown";
+"格式化存储卡" = "Format SD Card";
+"恢复出厂设置" = "Reset";
+"Wi-Fi模式" = "Wi-Fi Mode";
+"相机剩余空间" = "Remaining Space";
+"相机软件版本" = "Version";
+"Wi-Fi名称必须为1-16个非空字符" = "Wi-Fi name must be 1-16 non-blank characters";
+"Wi-Fi密码必须为8-16个非空字符" = "Wi-Fi password must be 8-16 non-blank characters";
+
+"摄像" = "Camera";
+"返回" = "Return";
+"没有获取到数据，是否继续获取?" = "No data, do you want to continue to get it?";
+"删除" = "Delete";
+"分享" = "Share";
+"暂无文件" = "No file";
+"执行此操作需停止录像?" = "Need to stop recording to perform this operation";
+"录像已停止" = "Recording has stopped";
+"确定删除该文件吗" = "Are you sure to delete this file?";
+"校准时间成功" = "Calibration time succeeded";
+"校准时间失败" = "Calibration time failed";
+"格式化成功" = "Formatted successfully";
+"格式化失败" = "Format failed";
+"Wi-Fi设定" = "WIFI Setting";
+"WIFI设置" = "WIFI Setting";
+"设置成功,重启机器之后生效" = "The setting is successful and will take effect after restarting the machine";
+"请确认Wi-Fi是否已连接" = "Please confirm whether Wi-Fi is connected";
+"录像开启" = "Video Opened";
+"录像关闭" = "Video Closed";
+
+"恢复出厂设置成功" = "Factory reset success";
+"恢复出厂设置失败" = "Factory reset failure";
+"播放失败" = "Play failed";
+
+"未插入SD卡" = "NO SD Card";

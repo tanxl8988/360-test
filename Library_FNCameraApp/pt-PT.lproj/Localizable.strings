@@ -1,0 +1,107 @@
+/* 
+  Localizable.strings
+  Library_FNCameraApp
+
+  Created by apical on 2019/9/24.
+  Copyright © 2019年 Choco Yang. All rights reserved.
+*/
+
+//preview
+"圆球模式" = "Mode bola redonda";
+"360°VR模式" = "Mode 360°VR";
+"二分割" = "Dupla segmenttação";
+"往上" = "Suba.";
+"往下" = "Desça.";
+"往前" = "Vá em frente";
+"触控" = "Tocar";
+"动作" = "Ação";
+"触控+动作" = "Tocar + Ação";
+"连接失败" = "A conexAão falhou";
+"操作失败" = "A operação falhou";
+"确定" = "Certo";
+"摄像机" = "Câmera";
+"相册" = "";//
+"设置" = "Configurar";
+"一般模式" = "Padrão geral";
+
+//file
+"DVR视频" = "Vídeo DVR";
+"DVR图片" = "Fotos DVR";
+"本地视频" = "Local Vídeo";
+"本地图片" = "Fotos locais";
+"已下载" = "Baixado";
+"下载" = "BaiXar";
+"取消下载成功" = "Cancele o download com sucesso.";
+"下载失败" = "O download falhou";
+"删除失败" = "A exclusão falhou";
+"视频" = "Vídeo";
+"照片" = "Fotos";
+"事件" = "Evento";
+"停车监控" = "Monitoramento de estacionamento";
+
+"摄像机文件" = "Arquivo da cãmera";
+"本地文件" = "Arquivo local";
+
+
+//set
+"Wi-Fi未连接" = "O Wifi não está conectado";
+"确定要格式化吗" = "Tem certeza de que deseja formatá-lo?";
+"设置成功" = "Configure com sucesso.";
+"设置失败" = "A configuração falhou";
+"确定要恢复出厂设置吗" = "Tem certeza de qua deseja restaurar a configuração de fábrica";
+"取消" = "Cancelar";
+"关闭" = "Fechar";
+"一般" = "Mesmo";
+"热点" = "Foco de calor";
+"1 分钟" = "1 minuto";
+"3 分钟" = "3 min";
+"5 分钟" = "5 min";
+
+"视频分辨率" = "Resolução de vídeo";
+"视频戳记" = "Estampagem de vídeo";
+"录像曝光补偿" = "Compensação de exposição em vídeo";
+"循环录像周期" = "Ciclo de Vídeo giratório";
+//"录像宽动态" = "width Dynamic";
+"移动侦测" = "Detecção móver";
+"自动录像" = "Gravação automática de vídeo";
+"校准时间" = "Tempo de calibração";
+"重力感应" = "Sensor de gravidade";
+"录像设定" = "Configurações de vídeo";
+"屏幕保护" = "Protetor de tela";
+//"光源频率" = "Light Source Frequency";
+"按键音设定" = "Configuração do tom da chave";
+"相机语言" = "";//
+"定时关机" = "Cale a boca regularmente.";
+"格式化存储卡" = "Formatar cartão de memória";
+"恢复出厂设置" = "Restaurar para as definições de fábrica";
+"Wi-Fi模式" = "Modo Wifi";
+"相机剩余空间" = "";//
+"相机软件版本" = "";//
+"Wi-Fi名称必须为1-16个非空字符" = "O nome Wifi deve ter de 1 to 16 caracteres não vazios.";
+"Wi-Fi密码必须为8-16个非空字符" = "A senha deve ter de 8 to 16 caracteres não vazios.";
+
+"摄像" = "";//
+"返回" = "Retorno";
+"没有获取到数据，是否继续获取?" = "Nenhum dado foi obtido e deve continuar obtê-lo.";
+"删除" = "Cortar";
+"分享" = "Parte";
+"暂无文件" = "Nenhum documento";
+"执行此操作需停止录像?" = "Esta operação requer parar o vídeo";
+"录像已停止" = "O vídeo parou";
+"确定删除该文件吗" = "Tem certeza de excluir esse arquivo?";
+"校准时间成功" = "O tempo de calibração foi bem-sucedido";
+"校准时间失败" = "O tempo de calibração falhou";
+"格式化成功" = "Formatação bem-sucedido";
+"格式化失败" = "A formatação falhou";
+"Wi-Fi设定" = "Configurações de Wifi";
+"WIFI设置" = "Configurações de Wifi";
+"设置成功,重启机器之后生效" = "A configuração é bem-sucedida e entra em vigorapós a reinicialização da máquina.";
+"请确认Wi-Fi是否已连接" = "Por favor,confirme se o Wifi está conectado.";
+"录像开启" = "O vídeo está ligado";
+"录像关闭" = "Desligamento de vídeo";
+
+"恢复出厂设置成功" = "Restauração bem-sucedida das Configurações de fábrica";
+"恢复出厂设置失败" = "Falha ao restaurar as Configurações de fábrica";
+"播放失败" = "O jogo falhou.";
+
+"未插入SD卡" = "Nenhum cartáo SD foi inserido";
